@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace mosquito
 {
-    public partial class startup : Form
+    public partial class AppInputtedAlready : Form
     {
-        public startup()
+        public AppInputtedAlready()
         {
             InitializeComponent();
         }
 
-        private void startup_Load(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
