@@ -1,0 +1,12 @@
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.csprojAssemblyReference.cache
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.Form1.resources
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.Form2.resources
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.Form3.resources
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.csproj.GenerateResource.cache
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\bin\Debug\sample1.exe.config
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\bin\Debug\sample1.exe
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\bin\Debug\sample1.pdb
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.Properties.Resources.resources
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.csproj.CoreCompileInputs.cache
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.exe
+C:\Users\Angel\Documents\Spring 2021\CSC 3380 - OOD\Code\sample1\obj\Debug\sample1.pdb

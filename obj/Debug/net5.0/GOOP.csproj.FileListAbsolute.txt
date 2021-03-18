@@ -1,0 +1,15 @@
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.csprojAssemblyReference.cache
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.GeneratedMSBuildEditorConfig.editorconfig
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.AssemblyInfoInputs.cache
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.AssemblyInfo.cs
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.csproj.CoreCompileInputs.cache
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/GOOP.deps.json
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/GOOP.runtimeconfig.json
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/GOOP.runtimeconfig.dev.json
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/GOOP.dll
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/ref/GOOP.dll
+/Users/michaelmorel/Desktop/Git/GOOP/bin/Debug/net5.0/GOOP.pdb
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.dll
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/ref/GOOP.dll
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.pdb
+/Users/michaelmorel/Desktop/Git/GOOP/obj/Debug/net5.0/GOOP.genruntimeconfig.cache
