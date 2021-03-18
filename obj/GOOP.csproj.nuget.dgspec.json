@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Ross\\Desktop\\Mosquito\\GOOP\\GOOP.csproj": {}
   },
   "projects": {
@@ -16,12 +17,31 @@
         "configFilePaths": [
           "C:\\Users\\Ross\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "/Users/michaelmorel/Desktop/Git/GOOP/GOOP.csproj": {}
+  },
+  "projects": {
+    "/Users/michaelmorel/Desktop/Git/GOOP/GOOP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/michaelmorel/Desktop/Git/GOOP/GOOP.csproj",
+        "projectName": "GOOP",
+        "projectPath": "/Users/michaelmorel/Desktop/Git/GOOP/GOOP.csproj",
+        "packagesPath": "/Users/michaelmorel/.nuget/packages/",
+        "outputPath": "/Users/michaelmorel/Desktop/Git/GOOP/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/michaelmorel/.nuget/NuGet/NuGet.Config"
+>>>>>>> e582082d5beaddfe72f3be9c5e97671bc5909fea
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+=======
+>>>>>>> e582082d5beaddfe72f3be9c5e97671bc5909fea
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +74,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+>>>>>>> e582082d5beaddfe72f3be9c5e97671bc5909fea
         }
       }
     }
