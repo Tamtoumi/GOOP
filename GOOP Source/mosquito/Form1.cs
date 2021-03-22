@@ -26,31 +26,35 @@ namespace mosquito
             this.Close();
         }
     }
-    
+    public static class Globals
+    {
+        public static String path = @"C:\Users\Ross\Desktop\BadApps.txt"; // Modifiable
+    }
+
 
     class AppMan
     {
         public static void UpdateFile(string input)
         {
-            string path = @"C:\Users\Ross\Desktop\BadApps.txt";
-            if (!File.Exists(path))
+            //string path = @"C:\Users\Ross\Desktop\BadApps.txt";
+            if (!File.Exists(Globals.path))
             {
                 // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(Globals.path))
                 {
                     sw.WriteLine(input);
                 }
             }
             else
             {
-                if (lineFound(path, input))
+                if (lineFound(Globals.path, input))
                 {
                     AppInputtedAlready myForm = new AppInputtedAlready();
                     myForm.ShowDialog();
                 }
                 else
                 {
-                    using (StreamWriter sw = File.AppendText(path))
+                    using (StreamWriter sw = File.AppendText(Globals.path))
                     {
                         sw.WriteLine(input);
                         //Console.WriteLine("Added: " + input);
@@ -72,8 +76,16 @@ namespace mosquito
         {
             string line;
             // Read the file and display it line by line.  
+            if (!File.Exists(Globals.path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(Globals.path))
+                {
+                    //sw.WriteLine(input);
+                }
+            }
             System.IO.StreamReader file =
-                new System.IO.StreamReader(@"C:\Users\Ross\Desktop\BadApps.txt");
+                new System.IO.StreamReader(Globals.path);
             List<string> stringList = new List<string>();
             while ((line = file.ReadLine()) != null)
             {
@@ -85,11 +97,11 @@ namespace mosquito
 
         public static void DeleteBadApp(string input)
         {
-            string path = @"C:\Users\Ross\Desktop\BadApps.txt";
-            if (lineFound(path, input))
+            //string path = @"C:\Users\Ross\Desktop\BadApps.txt";
+            if (lineFound(Globals.path, input))
             {
                 string tempFile = Path.GetTempFileName();
-                using (var sr = new StreamReader(path))
+                using (var sr = new StreamReader(Globals.path))
                 using (var sw = new StreamWriter(tempFile))
                 {
                     string line;
@@ -102,8 +114,8 @@ namespace mosquito
                         }
                     }
                 }
-                File.Delete(path);
-                File.Move(tempFile, path);
+                File.Delete(Globals.path);
+                File.Move(tempFile, Globals.path);
             }
             else
             {
