@@ -29,35 +29,64 @@ namespace mosquito
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAppMan = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
+            this.btnTaskView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAppMan
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(57, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(419, 153);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAppMan.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppMan.Location = new System.Drawing.Point(146, 100);
+            this.btnAppMan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAppMan.Name = "btnAppMan";
+            this.btnAppMan.Size = new System.Drawing.Size(267, 106);
+            this.btnAppMan.TabIndex = 0;
+            this.btnAppMan.Text = "Application Manager";
+            this.btnAppMan.UseVisualStyleBackColor = true;
+            this.btnAppMan.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Location = new System.Drawing.Point(243, 9);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(46, 17);
+            this.title.TabIndex = 1;
+            this.title.Text = "label1";
+            // 
+            // btnTaskView
+            // 
+            this.btnTaskView.Location = new System.Drawing.Point(146, 258);
+            this.btnTaskView.Name = "btnTaskView";
+            this.btnTaskView.Size = new System.Drawing.Size(267, 106);
+            this.btnTaskView.TabIndex = 2;
+            this.btnTaskView.Text = "Task Viewer";
+            this.btnTaskView.UseVisualStyleBackColor = true;
+            this.btnTaskView.Click += new System.EventHandler(this.btnTaskView_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 279);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(537, 437);
+            this.Controls.Add(this.btnAppMan);
+            this.Controls.Add(this.btnTaskView);
+            this.Controls.Add(this.title);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAppMan;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Button btnTaskView;
     }
 }
 

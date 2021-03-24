@@ -64,8 +64,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI.cs" />
+    <Compile Include="Productive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productive.Designer.cs">
+      <DependentUpon>Productive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskViewer.Designer.cs">
+      <DependentUpon>TaskViewer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AppInputtedAlready.resx">
       <DependentUpon>AppInputtedAlready.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productive.resx">
+      <DependentUpon>Productive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +100,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TaskViewer.resx">
+      <DependentUpon>TaskViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

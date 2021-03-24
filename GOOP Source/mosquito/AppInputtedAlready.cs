@@ -15,6 +15,11 @@ namespace mosquito
         public AppInputtedAlready()
         {
             InitializeComponent();
+            GUI.setFormVisuals(this, title);
+            GUI.btnSetUp(Close);
+            GUI.txtSetUp(textBox1);
+            textBox1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

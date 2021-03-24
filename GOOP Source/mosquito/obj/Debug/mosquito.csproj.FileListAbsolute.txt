@@ -22,3 +22,17 @@ C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csproj.Genera
 C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csproj.CoreCompileInputs.cache
 C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.exe
 C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.pdb
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csprojAssemblyReference.cache
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.AppInputtedAlready.resources
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.ApplicationManager.resources
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.Form1.resources
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.Properties.Resources.resources
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csproj.GenerateResource.cache
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csproj.CoreCompileInputs.cache
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.exe
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.pdb
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\bin\Debug\mosquito.exe.config
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\bin\Debug\mosquito.exe
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\bin\Debug\mosquito.pdb
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.TaskViewer.resources
+C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.Productive.resources

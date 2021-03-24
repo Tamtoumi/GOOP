@@ -15,6 +15,20 @@ namespace mosquito
         public ApplicationManager()
         {
             InitializeComponent();
+            GUI.setFormVisuals(this, title);
+            GUI.btnSetUp(BadAppNumIn);
+            GUI.btnSetUp(DelBadAppNum);
+            GUI.btnSetUp(btnTaskViewer);
+            GUI.txtSetUp(UserInput);
+            GUI.txtSetUp(UserDel);
+            GUI.rtxtSetUp(ShowBadAppList);
+            GUI.rtxtSetUp(InstalledAppList);
+            GUI.labelSetUp(lblBadAppList);
+            GUI.labelSetUp(lblDelete);
+            GUI.labelSetUp(lblInputBadApp);
+            GUI.labelSetUp(lblInstalledApps);
+            btnTaskViewer.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            btnTaskViewer.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void BadAppNumIn_Click(object sender, EventArgs e)
@@ -61,6 +75,11 @@ namespace mosquito
         }
 
         private void UserDel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTaskViewer_Click(object sender, EventArgs e)
         {
 
         }

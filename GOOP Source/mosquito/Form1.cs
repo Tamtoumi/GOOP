@@ -14,21 +14,62 @@ namespace mosquito
 {
     public partial class Form1 : Form
     {
+        int chosen = 0;
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            GUI.setFormVisuals(this, title);
+            GUI.btnSetUp(btnAppMan);
+            GUI.btnSetUp(btnTaskView);
+           
+            // sets the form to a fixed size 
+            this.MinimumSize = new Size(425, 400);
+            this.MaximumSize = new Size(425, 400);
+            this.Text = "Start Up";
+            // changes the default font size 
+            btnAppMan.Font = new System.Drawing.Font("Nirmala UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnTaskView.Font = new System.Drawing.Font("Nirmala UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Loading...Give it a second. ", "Loading");
             ApplicationManager myForm = new ApplicationManager();
             myForm.ShowDialog();
-            this.Close();
+            this.Hide();
+            //this.Close();
+
+        }
+
+        private void btnTaskView_Click(object sender, EventArgs e)
+        {
+            
+            TaskViewer newForm = new TaskViewer();
+            newForm.Show();
+            this.Hide();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (chosen == 1)
+            //{
+            //    MessageBox.Show("Loading...Give it a second. ", "Loading");
+            //    ApplicationManager myForm = new ApplicationManager();
+            //    myForm.ShowDialog();
+            //}
+            //else if (chosen == 2)
+            //{
+            //    TaskViewer newForm = new TaskViewer();
+            //    newForm.Show();
+            //}
         }
     }
     public static class Globals
     {
-        public static String path = @"C:\Users\Ross\Desktop\BadApps.txt"; // Modifiable
+        //public static String path = @"C:\Users\Ross\Desktop\BadApps.txt"; // Modifiable
+        public static String path = @"C:\Users\Angel\Documents\GitHub\BadApps.txt";
     }
 
 
