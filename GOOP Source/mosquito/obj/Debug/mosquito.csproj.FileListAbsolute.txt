@@ -36,3 +36,5 @@ C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\bin\Debug\mosquito.exe
 C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\bin\Debug\mosquito.pdb
 C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.TaskViewer.resources
 C:\Users\Angel\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.Productive.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.Productive.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.TaskViewer.resources

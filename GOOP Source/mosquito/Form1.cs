@@ -22,7 +22,8 @@ namespace mosquito
             GUI.setFormVisuals(this, title);
             GUI.btnSetUp(btnAppMan);
             GUI.btnSetUp(btnTaskView);
-           
+            GUI.btnSetUp(btnFirstTimeSetUp);
+
             // sets the form to a fixed size 
             this.MinimumSize = new Size(425, 400);
             this.MaximumSize = new Size(425, 400);
@@ -30,12 +31,12 @@ namespace mosquito
             // changes the default font size 
             btnAppMan.Font = new System.Drawing.Font("Nirmala UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             btnTaskView.Font = new System.Drawing.Font("Nirmala UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
+            btnFirstTimeSetUp.Font = new System.Drawing.Font("Nirmala UI", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Loading...Give it a second. ", "Loading");
+            //MessageBox.Show("Loading...Give it a second. ", "Loading");
             ApplicationManager myForm = new ApplicationManager();
             myForm.ShowDialog();
             this.Hide();
@@ -65,37 +66,47 @@ namespace mosquito
             //    newForm.Show();
             //}
         }
+
+        private void btnFirstTimeSetUp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Loading...Give it a second. ", "Loading");
+            AppMan.Drivers();
+            ApplicationManager myForm = new ApplicationManager();
+            myForm.ShowDialog();
+            this.Hide();
+        }
     }
     public static class Globals
     {
-        //public static String path = @"C:\Users\Ross\Desktop\BadApps.txt"; // Modifiable
-        public static String path = @"C:\Users\Angel\Documents\GitHub\BadApps.txt";
+        public static String path = @"C:\Users\Ross\Desktop"; // Modifiable
+        //public static String path = @"C:\Users\Angel\Documents\GitHub";
     }
 
 
     class AppMan
     {
-        public static void UpdateFile(string input)
+        public static void UpdateFile(string input, string fileName)
         {
+            string newpath = FormatPath(fileName);
             //string path = @"C:\Users\Ross\Desktop\BadApps.txt";
-            if (!File.Exists(Globals.path))
+            if (!File.Exists(newpath))
             {
                 // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(Globals.path))
+                using (StreamWriter sw = File.CreateText(newpath))
                 {
                     sw.WriteLine(input);
                 }
             }
             else
             {
-                if (lineFound(Globals.path, input))
+                if (lineFound(newpath, input))
                 {
                     AppInputtedAlready myForm = new AppInputtedAlready();
                     myForm.ShowDialog();
                 }
                 else
                 {
-                    using (StreamWriter sw = File.AppendText(Globals.path))
+                    using (StreamWriter sw = File.AppendText(newpath))
                     {
                         sw.WriteLine(input);
                         //Console.WriteLine("Added: " + input);
@@ -113,20 +124,27 @@ namespace mosquito
                 }
             }*/
         }
+
+        public static string FormatPath(string textFile)
+        {
+            string path = string.Format(@"{0}{1}", Globals.path, textFile);
+            return path;
+        }
         public static string[] BadAppString()
         {
+            string newpath = FormatPath("\\BadApps.txt");
             string line;
             // Read the file and display it line by line.  
-            if (!File.Exists(Globals.path))
+            if (!File.Exists(newpath))
             {
                 // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(Globals.path))
+                using (StreamWriter sw = File.CreateText(newpath))
                 {
                     //sw.WriteLine(input);
                 }
             }
             System.IO.StreamReader file =
-                new System.IO.StreamReader(Globals.path);
+                new System.IO.StreamReader(newpath);
             List<string> stringList = new List<string>();
             while ((line = file.ReadLine()) != null)
             {
@@ -136,13 +154,38 @@ namespace mosquito
             return AppMan.StrSort(stringList.ToArray());
         }
 
+        public static string[] InstalledAppString()
+        {
+            string newpath = FormatPath("\\InstalledApps.txt");
+            string line;
+            // Read the file and display it line by line.  
+            if (!File.Exists(newpath))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(newpath))
+                {
+                    //sw.WriteLine(input);
+                }
+            }
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(newpath);
+            List<string> stringList = new List<string>();
+            while ((line = file.ReadLine()) != null)
+            {
+                stringList.Add(line);
+            }
+            file.Close();
+            return stringList.ToArray();
+        }
+
         public static void DeleteBadApp(string input)
         {
+            string newpath = FormatPath("\\BadApps.txt");
             //string path = @"C:\Users\Ross\Desktop\BadApps.txt";
-            if (lineFound(Globals.path, input))
+            if (lineFound(newpath, input))
             {
                 string tempFile = Path.GetTempFileName();
-                using (var sr = new StreamReader(Globals.path))
+                using (var sr = new StreamReader(newpath))
                 using (var sw = new StreamWriter(tempFile))
                 {
                     string line;
@@ -155,8 +198,8 @@ namespace mosquito
                         }
                     }
                 }
-                File.Delete(Globals.path);
-                File.Move(tempFile, Globals.path);
+                File.Delete(newpath);
+                File.Move(tempFile, newpath);
             }
             else
             {
@@ -183,7 +226,19 @@ namespace mosquito
             return found;
         }
 
-        public static string[] Drivers()
+        public static void UpdateTextBox(System.Windows.Forms.RichTextBox textBox, string[] text)
+        {
+            //string[] list = AppMan.BadAppString();
+            string[] list = text;
+            textBox.Text = "";
+            for (int j = 0; j < list.Length; j++)
+            {
+                //Console.WriteLine(list[i]);
+                textBox.Text += list[j] + "\n";
+            }
+        }
+
+        public static void Drivers()
         {
             string[] installedApps = null;
             DriveInfo[] allDrives = DriveInfo.GetDrives();
@@ -202,13 +257,36 @@ namespace mosquito
                 string[] executables2 = TraverseTree(path2);
                 installedApps = AppMan.StrCombine(installedApps, executables2);
                 //Console.WriteLine(installedApps);
-            }/*
+            }
+            string newpath = FormatPath("\\InstalledApps.txt");
+            int i = 0;
+            File.Delete(newpath);
             foreach (string element in installedApps)
             {
-                Console.WriteLine(element);
-            }*/
+                //Console.WriteLine(element);
+                if (!File.Exists(newpath))
+                {
+                    // Create a file to write to.
+                    using (StreamWriter sw = File.CreateText(newpath))
+                    {
+                        sw.WriteLine(i + ": " + element);
+                        i++;
+                    }
+                }
+                else
+                {
+                    using (StreamWriter sw = File.AppendText(newpath))
+                    {
+                        sw.WriteLine(i + ": " + element);
+                        //Console.WriteLine("Added: " + input);
+                        i++;
+                    }
+                }
+            }
             //Console.WriteLine(installedApps);
-            return installedApps;
+
+            //return installedApps;
+            return;
         }
         private static string[] TraverseTree(string root)
         {
@@ -307,7 +385,7 @@ namespace mosquito
         {
             try
             {
-                if (arr1[0] == null)
+                if (arr1 == null)
                     return arr2;
             }
             catch (NullReferenceException e)
@@ -316,7 +394,7 @@ namespace mosquito
             }
             try
             {
-                if (arr2[0] == null)
+                if (arr2 == null)
                     return arr1;
             }
             catch (NullReferenceException e)

@@ -42,11 +42,22 @@ namespace mosquito
             {
                 return;
             }
-            string apps = exeList[Int32.Parse(UserInput.Text)];
-            
-            //Console.WriteLine(apps);
-            AppMan.UpdateFile(apps);
-            UserInput.Text = "";
+            else if (Int32.Parse(UserInput.Text) >= AppMan.InstalledAppString().Length)
+            {
+                //here insert new form of out of bounds error
+                Console.WriteLine("The number you inputted is not in the list");
+                return;
+            }
+            else
+            {
+                exeList = AppMan.InstalledAppString();
+                string apps = exeList[Int32.Parse(UserInput.Text)];
+
+                //Console.WriteLine(apps);
+                AppMan.UpdateFile(apps, "\\BadApps.txt");
+                UserInput.Text = "";
+                AppMan.UpdateTextBox(ShowBadAppList, AppMan.BadAppString());
+            }
         }
 
         private void DelBadAppNum_Click(object sender, EventArgs e)
@@ -57,6 +68,15 @@ namespace mosquito
             }
             AppMan.DeleteBadApp(UserDel.Text);
             UserDel.Text = "";
+            /*
+            string[] list = AppMan.BadAppString();
+            ShowBadAppList.Text = "";
+            for (int j = 0; j < list.Length; j++)
+            {
+                //Console.WriteLine(list[i]);
+                ShowBadAppList.Text += list[j] + "\n";
+            }*/
+            AppMan.UpdateTextBox(ShowBadAppList, AppMan.BadAppString());
         }
 
         private void UserInput_TextChanged(object sender, EventArgs e)

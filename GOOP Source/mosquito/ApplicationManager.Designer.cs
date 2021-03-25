@@ -196,22 +196,27 @@ namespace mosquito
         string[] exeList;
         private void ApplicationManager_Load(object sender, System.EventArgs e)
         {
+            /*
             exeList = AppMan.Drivers();
             int i = 0;
-            /*
-            string[] executables1 = Test.TraverseTree(@"C:\Program Files");
-            foreach (string element in executables1)
-            {
-                listofApp.Text += i + ":   " + element + "\n";
-                i++;
-            }
-            string[] executables2 = Test.TraverseTree(@"C:\Program Files (x86)");
-            foreach (string element in executables2)
-            {
-                listofApp.Text += i + ":   " + element + "\n";
-                i++;
-            }
-            string[] combine = Test.StrCombine(executables1, executables2);*/
+
+
+            // condensed into its own function
+            //string[] executables1 = Test.TraverseTree(@"C:\Program Files");
+            //foreach (string element in executables1)
+            //{
+            //    listofApp.Text += i + ":   " + element + "\n";
+            //    i++;
+            //}
+            //string[] executables2 = Test.TraverseTree(@"C:\Program Files (x86)");
+            //foreach (string element in executables2)
+            //{
+            //    listofApp.Text += i + ":   " + element + "\n";
+            //    i++;
+            //}
+            //string[] combine = Test.StrCombine(executables1, executables2);
+
+
             //foreach (string element in combine)
             foreach (string element in exeList)
             {
@@ -219,14 +224,16 @@ namespace mosquito
                 InstalledAppList.Text += i + ":   " + element + "\n";
                 i++;
             }
+            /*
             string[] list = AppMan.BadAppString();
             ShowBadAppList.Text = "";
             for (int j = 0; j < list.Length; j++)
             {
                 //Console.WriteLine(list[i]);
                 ShowBadAppList.Text += list[j] + "\n";
-            }
-            
+            }*/
+            AppMan.UpdateTextBox(InstalledAppList, AppMan.InstalledAppString());
+            AppMan.UpdateTextBox(ShowBadAppList, AppMan.BadAppString());
         }
 
         private System.Windows.Forms.TextBox UserDel;
