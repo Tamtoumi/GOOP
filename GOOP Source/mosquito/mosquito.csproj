@@ -58,6 +58,18 @@
     <Compile Include="ApplicationManager.Designer.cs">
       <DependentUpon>ApplicationManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="buttonTrial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buttonTrial.Designer.cs">
+      <DependentUpon>buttonTrial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="captchaWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="captchaWindow.Designer.cs">
+      <DependentUpon>captchaWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,18 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI.cs" />
+    <Compile Include="initialAnnoyanceWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="initialAnnoyanceWindow.Designer.cs">
+      <DependentUpon>initialAnnoyanceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="popupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="popupWindow.Designer.cs">
+      <DependentUpon>popupWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productive.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,8 +109,20 @@
     <EmbeddedResource Include="ApplicationManager.resx">
       <DependentUpon>ApplicationManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="buttonTrial.resx">
+      <DependentUpon>buttonTrial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="captchaWindow.resx">
+      <DependentUpon>captchaWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="initialAnnoyanceWindow.resx">
+      <DependentUpon>initialAnnoyanceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="popupWindow.resx">
+      <DependentUpon>popupWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productive.resx">
       <DependentUpon>Productive.cs</DependentUpon>

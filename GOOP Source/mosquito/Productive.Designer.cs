@@ -167,6 +167,7 @@ namespace mosquito
             this.Controls.Add(this.title);
             this.Name = "Productive";
             this.Text = "Productive";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Productive_FormClosing);
             this.Load += new System.EventHandler(this.Productive_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

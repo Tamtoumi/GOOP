@@ -36,7 +36,7 @@ namespace mosquito
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Loading...Give it a second. ", "Loading");
+            MessageBox.Show("Loading...Give it a second. ", "Loading");
             ApplicationManager myForm = new ApplicationManager();
             myForm.ShowDialog();
             this.Hide();
@@ -75,10 +75,16 @@ namespace mosquito
             myForm.ShowDialog();
             this.Hide();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public static class Globals
     {
-        public static String path = @"C:\Users\Ross\Desktop"; // Modifiable
+        //public static String path = @"C:\Users\Ross\Desktop";  Modifiable
+        public static String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         //public static String path = @"C:\Users\Angel\Documents\GitHub";
     }
 
@@ -87,6 +93,11 @@ namespace mosquito
     {
         public static void UpdateFile(string input, string fileName)
         {
+
+            string[] new_input = input.Split(':');
+            input = new_input[1];
+            Console.WriteLine(input);
+
             string newpath = FormatPath(fileName);
             //string path = @"C:\Users\Ross\Desktop\BadApps.txt";
             if (!File.Exists(newpath))
@@ -269,7 +280,7 @@ namespace mosquito
                     // Create a file to write to.
                     using (StreamWriter sw = File.CreateText(newpath))
                     {
-                        sw.WriteLine(i + ": " + element);
+                        sw.WriteLine(i + ":" + element);
                         i++;
                     }
                 }
@@ -277,7 +288,7 @@ namespace mosquito
                 {
                     using (StreamWriter sw = File.AppendText(newpath))
                     {
-                        sw.WriteLine(i + ": " + element);
+                        sw.WriteLine(i + ":" + element);
                         //Console.WriteLine("Added: " + input);
                         i++;
                     }

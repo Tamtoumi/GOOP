@@ -14,6 +14,13 @@ namespace mosquito
     {
         TaskViewer newForm = new TaskViewer();
         Form1 forma = new Form1();
+        initialAnnoyanceWindow aw;
+
+        bool open = false;
+        Timer timer1;
+        Timer timer2;
+
+
         public Productive()
         {
             InitializeComponent();
@@ -51,7 +58,43 @@ namespace mosquito
 
         private void Productive_Load(object sender, EventArgs e)
         {
+            timer1 = new Timer();
+            timer1.Interval = (10 * 1000);
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+
+            timer2 = new Timer();
+            timer2.Interval = (1 * 1000);
+            timer2.Tick += new EventHandler(timer2_Tick);
+            timer2.Start();
+
             //rtxtTaskList.Text = 
+        }
+        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            AppDetector.appDetectorUpdater();
+            if (!(detection_signals.freetime_check) && detection_signals.detected_check)
+            {
+                if (!open)
+                {
+                    aw = new initialAnnoyanceWindow();
+                    aw.Show();
+                    open = true;
+                }
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (detection_signals.freetime_check || !(detection_signals.detected_check))
+            {
+                if (open)
+                {
+                    aw.Close();
+                    open = false;
+                }
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -59,6 +102,12 @@ namespace mosquito
             newForm.Show();
             this.Close();
 
+        }
+
+        private void Productive_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+            timer2.Stop();
         }
     }
 }
