@@ -13,8 +13,9 @@ namespace mosquito
     public partial class initialAnnoyanceWindow : Form 
     { 
         Timer timer = new Timer();
+        Timer timer2 = new Timer();
 
-        public static List<string> displayList = new List<string>();
+        public static List<string> displayList;
         popupWindow[] popups = new popupWindow[100];
         captchaWindow captcha;
         captchaWindow captcha_level2_1;
@@ -25,7 +26,7 @@ namespace mosquito
 
         int total_popups;
         int completed_windows = 0;
-        bool open = false;
+        bool open = true;
 
         FormCollection fc = Application.OpenForms;
 
@@ -38,6 +39,9 @@ namespace mosquito
         public initialAnnoyanceWindow()
         {
             InitializeComponent();
+            GUI.setFormVisuals(this, label1);
+            GUI.richtxtSetUp(display);
+            GUI.txtSetUp(state_Text);
             total_popups = 0;
             completed_windows = 0;
         }
@@ -61,9 +65,12 @@ namespace mosquito
                     total_popups = 0;
                 }
 
-                level2 = true;
-                state_Text.Text = "level2 is coming";
-                timer.Start();
+                if (open)
+                {
+                    level2 = true;
+                    state_Text.Text = "level2 is coming";
+                    timer.Start();
+                }
             }
 
             else if (level == 2)
@@ -72,6 +79,7 @@ namespace mosquito
                 Console.WriteLine("completed windows = " + completed_windows);
                 if (completed_windows == 4)
                 {
+                    completed_windows = 0;
                     if (total_popups > 0)
                     {
                         for (int i = 0; i < total_popups; i++)
@@ -80,10 +88,12 @@ namespace mosquito
                         }
                         total_popups = 0;
                     }
-                    level2 = false;
-                    level3 = true;
-                    state_Text.Text = "level3 is coming";
-                    timer.Start();
+
+                    if (open)
+                    {
+                        state_Text.Text = "level2 again";
+                        timer.Start();
+                    }
                 }
 
             }
@@ -95,8 +105,8 @@ namespace mosquito
             display.ReadOnly = true;
             foreach (var text in displayList)
             {
-                var writeText = "-" + text + "\r\n";
-                display.Text = writeText;
+                var writeText = "- " + text + "\r\n";
+                display.AppendText(writeText);
             }
 
             //Timer newtimer = new Timer();
@@ -104,10 +114,10 @@ namespace mosquito
             timer.Tick += new EventHandler(newtimer_Tick);
             timer.Start();
 
-            Timer timer2 = new Timer();
+            timer2 = new Timer();
             timer2.Interval = (5 * 1000);
             timer2.Tick += new EventHandler(timer2_Tick);
-            timer.Start();
+            timer2.Start();
 
 
         }
@@ -134,7 +144,7 @@ namespace mosquito
 
             else if (level2)
             {
-                level2 = false;
+                //level2 = false;
                 state_Text.Text = "level 2 activated";
                 timer.Stop();
 
@@ -163,10 +173,11 @@ namespace mosquito
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            display.Text = "";
             foreach (var text in displayList)
             {
-                var writeText = "-" + text + "\r\n";
-                display.Text = writeText;
+                var writeText = "- " + text + "\r\n";
+                display.AppendText(writeText);
             }
         }
 
@@ -180,6 +191,8 @@ namespace mosquito
             else
             {
                 timer.Stop();
+                timer2.Stop();
+                open = false;
                 if (total_popups > 0)
                 {
                     for (int i = 0; i < total_popups; i++)
@@ -189,37 +202,37 @@ namespace mosquito
                     total_popups = 0;
                 }
 
-                foreach (Form frm in fc)
-                {
-                    Console.WriteLine("form = " + frm.Name);
-                    if (level1)
-                    {
-                        if (frm.Name == "captchaWindow")
-                        {
-                            captcha.completed = true;
+                //foreach (Form frm in fc)
+                //{
+                //    Console.WriteLine("form = " + frm.Name);
+                //    if (level1)
+                //    {
+                //        if (frm.Name == "captchaWindow")
+                //        {
+                //            captcha.completed = true;
                             
-                            frm.Close();
-                        }
-                    }
-                    else if (level2)
-                    {
-                        if (frm.Name == "captchaWindow")
-                        {
+                //            frm.Close();
+                //        }
+                //    }
+                //    else if (level2)
+                //    {
+                //        if (frm.Name == "captchaWindow")
+                //        {
 
-                            captcha_level2_1.completed = true;
-                            captcha_level2_2.completed = true;
-                            frm.Close();
-                        }
-                    }
+                //            captcha_level2_1.completed = true;
+                //            captcha_level2_2.completed = true;
+                //            frm.Close();
+                //        }
+                //    }
 
-                    else if (frm.Name == "buttonTrial")
-                    {
-                        frm.Close();
-                    }
+                //    else if (frm.Name == "buttonTrial")
+                //    {
+                //        frm.Close();
+                //    }
 
                    
 
-                }
+                //}
 
             }
         }

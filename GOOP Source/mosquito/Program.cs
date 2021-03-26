@@ -46,6 +46,7 @@ namespace mosquito
             List<string> curr_list = new List<string>();
             bool set = false;
             string[] list = AppMan.BadAppString(); // Ross's function
+            int chromeTime = 0;
             foreach (string badApp in list)
             {
 
@@ -55,17 +56,30 @@ namespace mosquito
                     
                     if (process.ProcessName + ".exe" == badApp)
                     {
+                        if(process.ProcessName == "chrome")
+                        {
+                            if (chromeTime != 0)
+                            {
+                                continue;
+                            }
+                        }
                         // Call Henry's function to toggle the system preventer
                         //Form1.set_detector(true);
                         set = true;
                         Console.WriteLine("Bad Application " + process.ProcessName + " detected!: Toggle System Preventor.");
                         curr_list.Add(process.ProcessName);
+                        chromeTime = 1;
                     }
                 }
             }
             if (set)
             {
                 detection_signals.set_detector(true);
+                foreach (string word in curr_list)
+                {
+                    Console.WriteLine(word);
+                }
+                
                 initialAnnoyanceWindow.update_Annoyance_List(curr_list);
             }
             else

@@ -58,6 +58,14 @@ namespace mosquito
             txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
         }
 
+        public static void richtxtSetUp(RichTextBox txtName)
+        {
+            txtName.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+        }
+
         // this is the default visuals for all rich textboxes
         public static void rtxtSetUp(RichTextBox txtName)
         {

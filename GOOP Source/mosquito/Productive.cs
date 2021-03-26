@@ -59,7 +59,7 @@ namespace mosquito
         private void Productive_Load(object sender, EventArgs e)
         {
             timer1 = new Timer();
-            timer1.Interval = (10 * 1000);
+            timer1.Interval = (5 * 1000);
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
 

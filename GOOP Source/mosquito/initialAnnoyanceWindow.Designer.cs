@@ -33,13 +33,14 @@ namespace mosquito
             this.display = new System.Windows.Forms.RichTextBox();
             this.newtimer = new System.Windows.Forms.Timer(this.components);
             this.state_Text = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // display
             // 
-            this.display.Location = new System.Drawing.Point(435, 12);
+            this.display.Location = new System.Drawing.Point(159, 74);
             this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(333, 426);
+            this.display.Size = new System.Drawing.Size(333, 364);
             this.display.TabIndex = 0;
             this.display.Text = "";
             // 
@@ -49,16 +50,26 @@ namespace mosquito
             // 
             // state_Text
             // 
-            this.state_Text.Location = new System.Drawing.Point(118, 96);
+            this.state_Text.Location = new System.Drawing.Point(28, 114);
             this.state_Text.Name = "state_Text";
             this.state_Text.Size = new System.Drawing.Size(100, 22);
             this.state_Text.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(225, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
             // 
             // initialAnnoyanceWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(527, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.state_Text);
             this.Controls.Add(this.display);
             this.Name = "initialAnnoyanceWindow";
@@ -76,5 +87,6 @@ namespace mosquito
         private System.Windows.Forms.RichTextBox display;
         private System.Windows.Forms.Timer newtimer;
         private System.Windows.Forms.TextBox state_Text;
+        private System.Windows.Forms.Label label1;
     }
 }
