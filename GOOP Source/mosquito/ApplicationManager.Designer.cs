@@ -194,6 +194,8 @@ namespace mosquito
         private System.Windows.Forms.TextBox UserInput;
 
         string[] exeList;
+
+        // @brief Have the textboxes loaded with the Installed Application List and Bad Application List on form startup 
         private void ApplicationManager_Load(object sender, System.EventArgs e)
         {
             /*

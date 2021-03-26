@@ -36,20 +36,18 @@ namespace mosquito
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 38);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(89, 31);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(232, 22);
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Inserted App is already in the list";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Close
             // 
-            this.Close.Location = new System.Drawing.Point(207, 82);
-            this.Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Close.Location = new System.Drawing.Point(155, 67);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(100, 28);
+            this.Close.Size = new System.Drawing.Size(75, 23);
             this.Close.TabIndex = 1;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
@@ -58,23 +56,24 @@ namespace mosquito
             // title
             // 
             this.title.AutoSize = true;
-            this.title.Location = new System.Drawing.Point(237, 0);
+            this.title.Location = new System.Drawing.Point(178, 0);
+            this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(46, 17);
+            this.title.Size = new System.Drawing.Size(35, 13);
             this.title.TabIndex = 2;
             this.title.Text = "label1";
             // 
             // AppInputtedAlready
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 140);
+            this.ClientSize = new System.Drawing.Size(370, 114);
             this.Controls.Add(this.title);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AppInputtedAlready";
             this.Text = "Error!";
+            this.Load += new System.EventHandler(this.AppInputtedAlready_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

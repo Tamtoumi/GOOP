@@ -56,3 +56,7 @@ C:\Users\hfrey\OneDrive\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mos
 C:\Users\hfrey\OneDrive\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.captchaWindow.resources
 C:\Users\hfrey\OneDrive\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.initialAnnoyanceWindow.resources
 C:\Users\hfrey\OneDrive\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.popupWindow.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.buttonTrial.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.captchaWindow.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.initialAnnoyanceWindow.resources
+C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.popupWindow.resources

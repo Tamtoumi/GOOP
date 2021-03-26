@@ -31,6 +31,9 @@ namespace mosquito
             btnTaskViewer.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
+        // @brief Button for user to add the current Application Number typed in the textbox from the Installed Application List
+        //        Updates BadApps.txt with the new Application
+        //        Updates the text box with the new Bad Application List
         private void BadAppNumIn_Click(object sender, EventArgs e)
         {
             int num = -1;
@@ -60,6 +63,9 @@ namespace mosquito
             }
         }
 
+        // @brief button for user to delete the current Application typed in the textbox from the Bad Application List 
+        //        Updates BadApps.txt without the current Application
+        //        Updates the text box with the new Bad Application List
         private void DelBadAppNum_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(UserDel.Text))

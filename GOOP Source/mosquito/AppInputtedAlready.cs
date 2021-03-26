@@ -31,5 +31,10 @@ namespace mosquito
         {
             this.Close();
         }
+
+        private void AppInputtedAlready_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
