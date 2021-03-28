@@ -14,7 +14,7 @@ namespace mosquito
     {
         public int rTime = 0;
         TaskViewer newForm = new TaskViewer();
-        TaskRewarder newForm2 = new TaskRewarder();
+        //TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
         initialAnnoyanceWindow aw;
 
@@ -58,12 +58,12 @@ namespace mosquito
         // @return Void
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            if (AppMan.eraseFromSavedUserAssignments(txtCompletedTask.Text))
+            if (ProgressTracker.eraseFromSavedUserAssignments(txtCompletedTask.Text))
             {
                 rtxtTaskList.ResetText();
                 showTextBoxRich();
             }
-            AppMan.cleanSUA2();
+            ProgressTracker.cleanSUA2();
             rTime += 5;
         }
 
@@ -87,7 +87,7 @@ namespace mosquito
         private void showTextBoxRich()
         {
             //this will show every task in the gui
-            string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+            string[] SavedUserAssignments = ProgressTracker.readSavedUserAssignments();
             string[] dist = SavedUserAssignments.Distinct().ToArray();
             foreach (string usertask in dist)
             {
@@ -113,7 +113,7 @@ namespace mosquito
             timer2.Start();
 
 
-            this.lblTimeRewarded.Text = newForm2.rewardTime;
+            //this.lblTimeRewarded.Text = newForm2.rewardTime;
 
             //rtxtTaskList.Text = 
         }
@@ -174,7 +174,7 @@ namespace mosquito
         // @return Void
         private void btnUseTime_Click(object sender, EventArgs e)
         {
-            newForm2.Show();
+            //newForm2.Show();
             this.Close();
         }
     }
