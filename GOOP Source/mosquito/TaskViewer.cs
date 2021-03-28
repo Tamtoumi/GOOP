@@ -32,12 +32,21 @@ namespace mosquito
             GUI.txtSetUp(txtEnterTask);
             GUI.txtSetUp(txtDeleteTask);
             GUI.rtxtSetUp(rtxtList);
+            AppMan.makeSavedUserAssignments();//creates SavedUserAssignments.txt
             rtxtList.ReadOnly = true;
 
             btnStart.ForeColor = System.Drawing.Color.MediumSeaGreen;
             btnStart.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
 
+            //this will show every task in the gui
+            string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+            foreach (string usertask in SavedUserAssignments)
+            {
+                txtEnterTask.Text = usertask;
+                GUI.TaskList(txtEnterTask, rtxtList);
+            }
+
+        }
         private void txtEnterTask_TextChanged(object sender, EventArgs e)
         {
 
@@ -45,8 +54,14 @@ namespace mosquito
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            
+            AppMan.updateSavedUserAssignments(txtEnterTask.Text);
             GUI.TaskList(txtEnterTask, rtxtList);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            AppMan.updateSavedUserAssignments(txtDeleteTask.Text);
+            GUI.TaskList(txtDeleteTask, rtxtList);
         }
 
         private void btnCreate_KeyDown(object sender, KeyEventArgs e)

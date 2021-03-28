@@ -535,5 +535,42 @@ namespace mosquito
             s = s.OrderBy(p => p).ToArray();
             return s;
         }
+
+        // @brief Creates SavedUserAssignments.txt is not there.
+        // @return Void
+        public static void makeSavedUserAssignments()
+        {
+             string newpath = FormatPath("\\SavedUserAssignments.txt");
+             if (!File.Exists(newpath))
+             {
+                //Create SUA.txt
+                File.Create(newpath);
+             }
+        }
+
+        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
+        // @param input A string containg text to be saved to a file
+        // @return Void
+        public static void updateSavedUserAssignments(string input)
+        {
+            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            using (StreamWriter sw = File.AppendText(newpath))
+            {
+                sw.Write(input + "`");
+            }
+        }
+
+        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
+        // @param input A string containg text to be saved to a file
+        // @return Void
+        public static string[] readSavedUserAssignments()
+        {
+            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string rawSUA;
+            rawSUA = File.ReadAllText(newpath);
+            string[] SUA = rawSUA.Split('`');
+            return SUA;
+        }
+
     }
 }
