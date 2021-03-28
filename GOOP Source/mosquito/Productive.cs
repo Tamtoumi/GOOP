@@ -52,6 +52,9 @@ namespace mosquito
             newForm = formTV;
         }
 
+        // @brief deletes from SUA, updates text box accordingly if needed, cleans SUA, gives credit to user.
+        // @param activates on enter of create button
+        // @return Void
         private void btnComplete_Click(object sender, EventArgs e)
         {
             if (AppMan.eraseFromSavedUserAssignments(txtCompletedTask.Text))
@@ -59,17 +62,23 @@ namespace mosquito
                 rtxtTaskList.ResetText();
                 showTextBoxRich();
             }
-            TaskViewer.cleanBoard();
             AppMan.cleanSUA2();
         }
 
+
+        // @brief returns to taskViewer and closes this window
+        // @param activates on enter of stop button
+        // @return Void
+
         private void btnStop_Click(object sender, EventArgs e)
         {
-            TaskViewer.cleanBoard();
             newForm.Show();
             this.Close();
             //forma.Show();
         }
+
+        // @brief shows tasks from the SUA to textbox, often used to redisplay text on updates to list.
+        // @return Void
 
         private void showTextBoxRich()
         {
@@ -84,6 +93,9 @@ namespace mosquito
               txtCompletedTask.Text = "";
         }
 
+        // @brief 
+        // @param activates on load of this class
+        // @return Void
         private void Productive_Load(object sender, EventArgs e)
         {
             timer1 = new Timer();
@@ -102,6 +114,9 @@ namespace mosquito
             //rtxtTaskList.Text = 
         }
         
+        // @brief 
+        // @param 
+        // @return Void
         private void timer1_Tick(object sender, EventArgs e)
         {
             AppDetector.appDetectorUpdater();
@@ -116,6 +131,9 @@ namespace mosquito
             }
         }
 
+        // @brief 
+        // @param 
+        // @return Void
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (detection_signals.freetime_check || !(detection_signals.detected_check))
@@ -128,6 +146,9 @@ namespace mosquito
             }
         }
 
+        // @brief exits this window and enters TaskViewer
+        // @param activates on click of edit button
+        // @return Void
         private void btnEdit_Click(object sender, EventArgs e)
         {
             newForm.Show();
@@ -135,12 +156,18 @@ namespace mosquito
 
         }
 
+        // @brief 
+        // @param activates on closing of form
+        // @return Void
         private void Productive_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
             timer2.Stop();
         }
 
+        // @brief 
+        // @param activates on click of useTime button
+        // @return Void
         private void btnUseTime_Click(object sender, EventArgs e)
         {
             //newForm2.Show();

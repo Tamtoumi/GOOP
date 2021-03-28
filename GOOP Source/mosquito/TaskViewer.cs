@@ -14,7 +14,6 @@ namespace mosquito
     {
         Form1 newForm;
         List<string> enteredTasks = new List<string>();
-        bool textOnceSwitch = true;
 
         public TaskViewer(Form1 frm2)
         {
@@ -39,7 +38,7 @@ namespace mosquito
             btnStart.ForeColor = System.Drawing.Color.MediumSeaGreen;
             btnStart.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            readSUAOnce();
+            readSUAOnce(); //will read SUA file but will never activate for a second time.
             
         }
 
@@ -48,6 +47,8 @@ namespace mosquito
 
         }
 
+        // @brief will read SUA for the first time and will not activate again until restating the program.
+        // @return Void
         private void readSUAOnce()
         {
             if (GUI.SavedUserAssignmentsRead == false)
@@ -57,6 +58,8 @@ namespace mosquito
             GUI.SavedUserAssignmentsRead = true;
         }
 
+        // @brief will display SUA tasks to The text box
+        // @return Void
          private void showRichTextBox()
          {
               //this will show every task in the gui
@@ -70,6 +73,9 @@ namespace mosquito
               txtEnterTask.Text = "";
          }
 
+        // @brief puts User input into SUA, enteredtasks in GUI and cleans file.
+        // @param file only runs on click of create task button
+        // @return Void
         private void btnCreate_Click(object sender, EventArgs e)
         {
             AppMan.updateSavedUserAssignments(txtEnterTask.Text);
@@ -77,12 +83,18 @@ namespace mosquito
             AppMan.cleanSUA2();
         }
 
+        // @brief deletes from file and displays
+        // @param activates on click of delete button
+        // @return Void
         private void btnDelete_Click(object sender, EventArgs e)
         {
             AppMan.updateSavedUserAssignments(txtDeleteTask.Text);
             GUI.TaskList(txtDeleteTask, rtxtList);
         }
 
+        // @brief creates from file and displays
+        // @param activates on enter of create button
+        // @return Void
         private void btnCreate_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -106,6 +118,10 @@ namespace mosquito
             }
         }
 
+        // @brief clears text, enters productive mode.
+        // @param activates on click of done button
+        // @return Void
+
         private void btnDone_Click(object sender, EventArgs e)
         {
             rtxtList.ResetText();
@@ -115,12 +131,18 @@ namespace mosquito
             //this.Hide();
         }
 
+        // @brief resets text redisplays text for updated file from another window
+        // @param  starts on load of class
+        // @return Void
+
         private void TaskViewer_Load(object sender, EventArgs e)
         {
             rtxtList.ResetText();
             showRichTextBox();
         }
         
+
+        //Unused class for now
         public static void cleanBoard()
         {
 
