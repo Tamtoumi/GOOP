@@ -74,7 +74,7 @@ namespace mosquito
         {
             AppMan.updateSavedUserAssignments(txtEnterTask.Text);
             GUI.TaskDisplay(txtEnterTask, rtxtList);
-            //AppMan.cleanSUA();
+            AppMan.cleanSUA2();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

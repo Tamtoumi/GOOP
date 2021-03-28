@@ -60,7 +60,7 @@ namespace mosquito
                 showTextBoxRich();
             }
             TaskViewer.cleanBoard();
-            //AppMan.cleanSUA();
+            AppMan.cleanSUA2();
         }
 
         private void btnStop_Click(object sender, EventArgs e)

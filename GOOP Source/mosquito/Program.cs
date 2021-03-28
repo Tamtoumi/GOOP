@@ -548,7 +548,7 @@ namespace mosquito
              }
         }
 
-        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
+        // @brief Update SUA by adding a single task that is input param.
         // @param input A string containg text to be saved to a file
         // @return Void
         public static void updateSavedUserAssignments(string input)
@@ -560,9 +560,8 @@ namespace mosquito
             }
         }
 
-        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
-        // @param input A string containg text to be saved to a file
-        // @return Void
+        // @brief Reads SUA and gives back the information in the form of a string array. Good for checking contents of the file.
+        // @return string array where each of the assignments are an individual in the array, just the name user inputted.
         public static string[] readSavedUserAssignments()
         {
             string newpath = FormatPath("\\SavedUserAssignments.txt");
@@ -573,9 +572,9 @@ namespace mosquito
         }
 
 
-        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
-        // @param input A string containg text to be saved to a file
-        // @return Void
+        // @brief erases the possiblecompeletask param from the SUA file. Used in delete and Complete buttons in taskviewer and productive.
+        // @param Give the task that may or maynot be in the SUA file. 
+        // @return true if sucsessful and false if possiblecompletetask is not in the file.
         public static bool eraseFromSavedUserAssignments(string PossibleCompleteTask)
         {
             string newpath = FormatPath("\\SavedUserAssignments.txt");
@@ -597,8 +596,7 @@ namespace mosquito
                 return false;
         }
 
-        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
-        // @param input A string containg text to be saved to a file
+        // @brief OLD DO NOT USE. this is the old way to clean the SUA file.
         // @return Void
         public static void cleanSUA()
         {
@@ -632,5 +630,24 @@ namespace mosquito
             }
         }
 
+        // @brief Highly effecent way to clean up the SUA file. USE THIS, NOT cleanSUA(); This one is less complex and more reliable.
+        // @return Void
+        public static void cleanSUA2()
+        {
+            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string rawSUA;
+            rawSUA = File.ReadAllText(newpath);
+            string[] SUA = rawSUA.Split('`');
+            string[] SUAdist = SUA.Distinct().ToArray();
+            List<string> SUAList = SUAdist.Cast<string>().ToList();
+            File.WriteAllText(newpath, String.Empty);
+            foreach (string SingleSUA in SUAList)  
+            {  
+                if (SingleSUA != "") 
+                { 
+                    AppMan.updateSavedUserAssignments(SingleSUA);
+                }
+            }
+        }
     }
 }
