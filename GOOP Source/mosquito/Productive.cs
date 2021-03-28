@@ -12,8 +12,9 @@ namespace mosquito
 {
     public partial class Productive : Form
     {
+        public int rTime = 0;
         TaskViewer newForm = new TaskViewer();
-        //TaskRewarder newForm2 = new TaskRewarder();
+        TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
         initialAnnoyanceWindow aw;
 
@@ -63,6 +64,7 @@ namespace mosquito
                 showTextBoxRich();
             }
             AppMan.cleanSUA2();
+            rTime += 5;
         }
 
 
@@ -84,15 +86,15 @@ namespace mosquito
 
         private void showTextBoxRich()
         {
-              //this will show every task in the gui
-              string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
-              string[] dist = SavedUserAssignments.Distinct().ToArray();
-              foreach (string usertask in dist)
-              {
-                 txtCompletedTask.Text = usertask;
-                 GUI.TaskDisplay(txtCompletedTask, rtxtTaskList);
-              }
-              txtCompletedTask.Text = "";
+            //this will show every task in the gui
+            string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+            string[] dist = SavedUserAssignments.Distinct().ToArray();
+            foreach (string usertask in dist)
+            {
+                txtCompletedTask.Text = usertask;
+                GUI.TaskDisplay(txtCompletedTask, rtxtTaskList);
+            }
+            txtCompletedTask.Text = "";
         }
 
         // @brief 
@@ -111,11 +113,11 @@ namespace mosquito
             timer2.Start();
 
 
-            this.lblTimeRewarded.Text = "00:00:00";
+            this.lblTimeRewarded.Text = newForm2.rewardTime;
 
             //rtxtTaskList.Text = 
         }
-        
+
         // @brief 
         // @param 
         // @return Void
@@ -172,7 +174,7 @@ namespace mosquito
         // @return Void
         private void btnUseTime_Click(object sender, EventArgs e)
         {
-            //newForm2.Show();
+            newForm2.Show();
             this.Close();
         }
     }

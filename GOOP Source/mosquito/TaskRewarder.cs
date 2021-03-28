@@ -12,7 +12,12 @@ namespace mosquito
 {
     public partial class TaskRewarder : Form
     {
-        private int seconds;
+        int rwrdmin = Productive.RTime.ToString();
+        public string rewardTime;
+
+        public int Rwrdmin { get => rwrdmin; set => rwrdmin = value; }
+
+
 
         //static int minutes = 5;
         //static int seconds = minutes * 60;
@@ -58,6 +63,8 @@ namespace mosquito
             this.hourBox.Hide();
             this.minuteBox.Hide();
             this.secondBox.Hide();
+
+            rewardTime = this.ClockFace.ToString(); 
         }
 
         private void Start_Click(object sender, EventArgs e)
@@ -132,7 +139,5 @@ namespace mosquito
                 MessageBox.Show("You have run out of time. Get back to work!");
             }
         }
-
-
     }
 }
