@@ -13,6 +13,7 @@ namespace mosquito
     public partial class Productive : Form
     {
         TaskViewer newForm = new TaskViewer();
+        TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
         initialAnnoyanceWindow aw;
 
@@ -68,6 +69,9 @@ namespace mosquito
             timer2.Tick += new EventHandler(timer2_Tick);
             timer2.Start();
 
+
+            this.lblTimeRewarded.Text = "00:00:00";
+
             //rtxtTaskList.Text = 
         }
         
@@ -108,6 +112,12 @@ namespace mosquito
         {
             timer1.Stop();
             timer2.Stop();
+        }
+
+        private void btnUseTime_Click(object sender, EventArgs e)
+        {
+            newForm2.Show();
+            this.Close();
         }
     }
 }
