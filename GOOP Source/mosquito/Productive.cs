@@ -57,12 +57,12 @@ namespace mosquito
         // @return Void
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            if (AppMan.eraseFromSavedUserAssignments(txtCompletedTask.Text))
+            if (ProgressTracker.eraseFromSavedUserAssignments(txtCompletedTask.Text))
             {
                 rtxtTaskList.ResetText();
                 showTextBoxRich();
             }
-            AppMan.cleanSUA2();
+            ProgressTracker.cleanSUA2();
         }
 
 
@@ -73,8 +73,9 @@ namespace mosquito
         private void btnStop_Click(object sender, EventArgs e)
         {
             newForm.Show();
-            aw.disable = true;
-            aw.Close();
+            //aw.Close();
+            //aw.disable = true;
+          
             this.Close();
             //forma.Show();
         }
@@ -85,7 +86,7 @@ namespace mosquito
         private void showTextBoxRich()
         {
               //this will show every task in the gui
-              string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+              string[] SavedUserAssignments = ProgressTracker.readSavedUserAssignments();
               string[] dist = SavedUserAssignments.Distinct().ToArray();
               foreach (string usertask in dist)
               {

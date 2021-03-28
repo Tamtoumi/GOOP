@@ -28,6 +28,7 @@ namespace mosquito
             GUI.labelSetUp(lblInputBadApp);
             GUI.labelSetUp(lblInstalledApps);
             btnTaskViewer.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            ShowBadAppList.ReadOnly = true;
             btnTaskViewer.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 

@@ -32,7 +32,7 @@ namespace mosquito
             GUI.txtSetUp(txtEnterTask);
             GUI.txtSetUp(txtDeleteTask);
             GUI.rtxtSetUp(rtxtList);
-            AppMan.makeSavedUserAssignments();//creates SavedUserAssignments.txt
+            ProgressTracker.makeSavedUserAssignments();//creates SavedUserAssignments.txt
             rtxtList.ReadOnly = true;
 
             btnStart.ForeColor = System.Drawing.Color.MediumSeaGreen;
@@ -63,7 +63,7 @@ namespace mosquito
          private void showRichTextBox()
          {
               //this will show every task in the gui
-              string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+              string[] SavedUserAssignments = ProgressTracker.readSavedUserAssignments();
               string[] dist = SavedUserAssignments.Distinct().ToArray();
               foreach (string usertask in dist)
               {
@@ -79,9 +79,9 @@ namespace mosquito
         // @return Void
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            AppMan.updateSavedUserAssignments(txtEnterTask.Text);
+            ProgressTracker.updateSavedUserAssignments(txtEnterTask.Text);
             GUI.TaskDisplay(txtEnterTask, rtxtList);
-            AppMan.cleanSUA2();
+            ProgressTracker.cleanSUA2();
         }
 
         // @brief deletes from file and displays
@@ -90,12 +90,12 @@ namespace mosquito
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-             if (AppMan.eraseFromSavedUserAssignments(txtDeleteTask.Text))
+             if (ProgressTracker.eraseFromSavedUserAssignments(txtDeleteTask.Text))
             {
                 rtxtList.ResetText();
                 showRichTextBox();
             }
-            AppMan.cleanSUA2();
+            ProgressTracker.cleanSUA2();
         }
 
         // @brief creates from file and displays

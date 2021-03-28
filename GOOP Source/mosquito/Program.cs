@@ -535,12 +535,22 @@ namespace mosquito
             s = s.OrderBy(p => p).ToArray();
             return s;
         }
+    }
 
+    // Author: Michael Morel
+    // @brief The ProgressTracker is responsable for tracking user input and interprating this data among a few other things.
+    //        The tracker will do this using SavedUserAssignments.txt (SUA). This txt file will hold data that is parced and
+    //        and interprated then modified or displayed as needed. The file has a cleaning method to keep it orginized 
+    //        and comunicates closely with TaskViewer, Productive, and GUI.
+    //
+    //
+     class ProgressTracker
+    {
         // @brief Creates SavedUserAssignments.txt is not there.
         // @return Void
         public static void makeSavedUserAssignments()
         {
-             string newpath = FormatPath("\\SavedUserAssignments.txt");
+             string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
              if (!File.Exists(newpath))
              {
                 //Create SUA.txt
@@ -553,7 +563,7 @@ namespace mosquito
         // @return Void
         public static void updateSavedUserAssignments(string input)
         {
-            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
             using (StreamWriter sw = File.AppendText(newpath))
             {
                 sw.Write(input + "`");
@@ -564,7 +574,7 @@ namespace mosquito
         // @return string array where each of the assignments are an individual in the array, just the name user inputted.
         public static string[] readSavedUserAssignments()
         {
-            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
             string rawSUA;
             rawSUA = File.ReadAllText(newpath);
             string[] SUA = rawSUA.Split('`');
@@ -577,7 +587,7 @@ namespace mosquito
         // @return true if sucsessful and false if possiblecompletetask is not in the file.
         public static bool eraseFromSavedUserAssignments(string PossibleCompleteTask)
         {
-            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
             string rawSUA;
             rawSUA = File.ReadAllText(newpath);
             string[] SUA = rawSUA.Split('`');
@@ -588,7 +598,7 @@ namespace mosquito
                 File.WriteAllText(newpath, String.Empty);
                 foreach (string task in SUAList)
                 {
-                    AppMan.updateSavedUserAssignments(task);
+                    ProgressTracker.updateSavedUserAssignments(task);
                 }
                 return true;
             }
@@ -600,7 +610,7 @@ namespace mosquito
         // @return Void
         public static void cleanSUA()
         {
-            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
             string rawSUA;
             rawSUA = File.ReadAllText(newpath);
 
@@ -626,7 +636,7 @@ namespace mosquito
             File.WriteAllText(newpath, String.Empty);
             foreach (string task in SUA)
             {
-                AppMan.updateSavedUserAssignments(task);
+                ProgressTracker.updateSavedUserAssignments(task);
             }
         }
 
@@ -634,7 +644,7 @@ namespace mosquito
         // @return Void
         public static void cleanSUA2()
         {
-            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
             string rawSUA;
             rawSUA = File.ReadAllText(newpath);
             string[] SUA = rawSUA.Split('`');
@@ -645,7 +655,7 @@ namespace mosquito
             {  
                 if (SingleSUA != "") 
                 { 
-                    AppMan.updateSavedUserAssignments(SingleSUA);
+                    ProgressTracker.updateSavedUserAssignments(SingleSUA);
                 }
             }
         }

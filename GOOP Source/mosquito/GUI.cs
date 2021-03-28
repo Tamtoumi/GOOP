@@ -114,7 +114,7 @@ namespace mosquito
         //places SUA in enteredTasks in proper form. only used once.
         public static void ReadSUA()
         {
-            string[] SUA = AppMan.readSavedUserAssignments();
+            string[] SUA = ProgressTracker.readSavedUserAssignments();
 
              foreach (string SingleUA in SUA)
              {
@@ -123,6 +123,7 @@ namespace mosquito
              }
              enteredTasks.RemoveAt(enteredTasks.Count - 1);
         }
+
 
     }
 
