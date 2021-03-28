@@ -107,7 +107,9 @@ namespace mosquito
 
         private void btnTaskViewer_Click(object sender, EventArgs e)
         {
-
+            TaskViewer newForm = new TaskViewer();
+            newForm.Show();
+            this.Hide();
         }
     }
 }

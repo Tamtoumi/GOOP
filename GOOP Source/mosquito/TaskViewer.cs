@@ -71,6 +71,7 @@ namespace mosquito
                  GUI.TaskDisplay(txtEnterTask, rtxtList);
               }
               txtEnterTask.Text = "";
+              txtDeleteTask.Text = "";
          }
 
         // @brief puts User input into SUA, enteredtasks in GUI and cleans file.
@@ -88,8 +89,13 @@ namespace mosquito
         // @return Void
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            AppMan.updateSavedUserAssignments(txtDeleteTask.Text);
-            GUI.TaskList(txtDeleteTask, rtxtList);
+
+             if (AppMan.eraseFromSavedUserAssignments(txtDeleteTask.Text))
+            {
+                rtxtList.ResetText();
+                showRichTextBox();
+            }
+            AppMan.cleanSUA2();
         }
 
         // @brief creates from file and displays
