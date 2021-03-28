@@ -14,6 +14,7 @@ namespace mosquito
     {
         Form1 newForm;
         List<string> enteredTasks = new List<string>();
+        bool textOnceSwitch = true;
 
         public TaskViewer(Form1 frm2)
         {
@@ -38,19 +39,36 @@ namespace mosquito
             btnStart.ForeColor = System.Drawing.Color.MediumSeaGreen;
             btnStart.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            //this will show every task in the gui
-            string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
-            foreach (string usertask in SavedUserAssignments)
-            {
-                txtEnterTask.Text = usertask;
-                GUI.TaskList(txtEnterTask, rtxtList);
-            }
+            showRichTextBox();
+            readSUAOnce();
 
         }
+
         private void txtEnterTask_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void readSUAOnce()
+        {
+            if (GUI.SavedUserAssignmentsRead == false)
+            {
+                GUI.ReadSUA();
+            }
+            GUI.SavedUserAssignmentsRead = true;
+        }
+
+         private void showRichTextBox()
+         {
+              //this will show every task in the gui
+              string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+              string[] dist = SavedUserAssignments.Distinct().ToArray();
+              foreach (string usertask in dist)
+              {
+                 txtEnterTask.Text = usertask;
+                 GUI.TaskDisplay(txtEnterTask, rtxtList);
+              }
+         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -89,6 +107,7 @@ namespace mosquito
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            rtxtList.ResetText();
             Productive newForm = new Productive();
             newForm.Show();
             this.Close();   // this closes both form1 and taskviewer...

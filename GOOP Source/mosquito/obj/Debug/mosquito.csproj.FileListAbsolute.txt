@@ -77,3 +77,4 @@ C:\Users\Mike\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.cspr
 C:\Users\Mike\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csproj.CoreCompileInputs.cache
 C:\Users\Mike\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.exe
 C:\Users\Mike\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.pdb
+C:\Users\Mike\Documents\GitHub\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.csprojAssemblyReference.cache

@@ -12,7 +12,9 @@ namespace mosquito
         public static System.Drawing.Color mainColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
         public static System.Drawing.Color fontColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
         public static List<string> enteredTasks = new List<string>();
+        public static bool SavedUserAssignmentsRead = false;
         public static void setFormVisuals(Form Newform, Label TitleLabel)
+        
         {
             Newform.BackColor = mainColor;
 
@@ -92,9 +94,32 @@ namespace mosquito
             {
                 rtxtBox.AppendText(text);
             }
+
         }
 
+        // this function takes in user input from a textbox and displays it to a rich text box 
+        public static void TaskDisplay(TextBox txtBox, RichTextBox rtxtBox)
+        {
+            if (String.IsNullOrWhiteSpace(txtBox.Text))
+            {
+                return;
+            }
 
+            // enters and displays the list of tasks entered by user 
+            string tasks = "- " + txtBox.Text + "\r\n";
+            rtxtBox.AppendText("- " + txtBox.Text + "\r\n");
+        }
+
+        public static void ReadSUA()
+        {
+            string[] rawSUA = AppMan.readSavedUserAssignments();
+
+             foreach (string RSUA in rawSUA)
+             {
+                    string tasks = "- " + RSUA + "\r\n";
+                    enteredTasks.Add(tasks);
+             }
+        }
 
     }
 

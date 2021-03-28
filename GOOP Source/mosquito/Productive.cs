@@ -13,7 +13,7 @@ namespace mosquito
     public partial class Productive : Form
     {
         TaskViewer newForm = new TaskViewer();
-        TaskRewarder newForm2 = new TaskRewarder();
+        //TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
         initialAnnoyanceWindow aw;
 
@@ -42,6 +42,8 @@ namespace mosquito
             btnStop.ForeColor = System.Drawing.Color.Red;
             btnComplete.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             btnStop.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            showTextBoxRich();
         }
 
         public Productive(TaskViewer formTV)
@@ -55,6 +57,18 @@ namespace mosquito
             newForm.Show();
             this.Close();
             //forma.Show();
+        }
+
+        private void showTextBoxRich()
+        {
+              //this will show every task in the gui
+              string[] SavedUserAssignments = AppMan.readSavedUserAssignments();
+              string[] dist = SavedUserAssignments.Distinct().ToArray();
+              foreach (string usertask in dist)
+              {
+                 txtCompletedTask.Text = usertask;
+                 GUI.TaskDisplay(txtCompletedTask, rtxtTaskList);
+              }
         }
 
         private void Productive_Load(object sender, EventArgs e)
@@ -116,7 +130,7 @@ namespace mosquito
 
         private void btnUseTime_Click(object sender, EventArgs e)
         {
-            newForm2.Show();
+            //newForm2.Show();
             this.Close();
         }
     }
