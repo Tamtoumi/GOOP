@@ -97,7 +97,7 @@ namespace mosquito
 
         }
 
-        // this function takes in user input from a textbox and displays it to a rich text box 
+        // this function displays to the box without using the enteredTasks list. used for initializatiin of box
         public static void TaskDisplay(TextBox txtBox, RichTextBox rtxtBox)
         {
             if (String.IsNullOrWhiteSpace(txtBox.Text))
@@ -106,19 +106,21 @@ namespace mosquito
             }
 
             // enters and displays the list of tasks entered by user 
-            string tasks = "- " + txtBox.Text + "\r\n";
             rtxtBox.AppendText("- " + txtBox.Text + "\r\n");
+
         }
 
+        //places SUA in enteredTasks in proper form. only used once.
         public static void ReadSUA()
         {
-            string[] rawSUA = AppMan.readSavedUserAssignments();
+            string[] SUA = AppMan.readSavedUserAssignments();
 
-             foreach (string RSUA in rawSUA)
+             foreach (string SingleUA in SUA)
              {
-                    string tasks = "- " + RSUA + "\r\n";
+                    string tasks = "- " + SingleUA + "\r\n";
                     enteredTasks.Add(tasks);
              }
+             enteredTasks.RemoveAt(enteredTasks.Count - 1);
         }
 
     }
