@@ -175,6 +175,8 @@ namespace mosquito
         private void btnUseTime_Click(object sender, EventArgs e)
         {
             //newForm2.Show();
+            TaskRewarder newForms = new TaskRewarder();
+            newForms.Show();
             this.Close();
         }
     }
