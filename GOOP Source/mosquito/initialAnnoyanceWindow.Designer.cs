@@ -34,14 +34,16 @@ namespace mosquito
             this.newtimer = new System.Windows.Forms.Timer(this.components);
             this.state_Text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.currBadApps = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // display
             // 
-            this.display.Location = new System.Drawing.Point(159, 74);
+            this.display.Location = new System.Drawing.Point(282, 74);
             this.display.Name = "display";
-            this.display.Size = new System.Drawing.Size(333, 364);
+            this.display.Size = new System.Drawing.Size(210, 364);
             this.display.TabIndex = 0;
+            this.display.TabStop = false;
             this.display.Text = "";
             // 
             // newtimer
@@ -50,10 +52,14 @@ namespace mosquito
             // 
             // state_Text
             // 
-            this.state_Text.Location = new System.Drawing.Point(28, 114);
+            this.state_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.state_Text.Location = new System.Drawing.Point(34, 186);
+            this.state_Text.Multiline = true;
             this.state_Text.Name = "state_Text";
-            this.state_Text.Size = new System.Drawing.Size(100, 22);
+            this.state_Text.Size = new System.Drawing.Size(196, 102);
             this.state_Text.TabIndex = 1;
+            this.state_Text.TabStop = false;
+            this.state_Text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -64,11 +70,20 @@ namespace mosquito
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 
+            // currBadApps
+            // 
+            this.currBadApps.Location = new System.Drawing.Point(282, 46);
+            this.currBadApps.Name = "currBadApps";
+            this.currBadApps.Size = new System.Drawing.Size(176, 22);
+            this.currBadApps.TabIndex = 3;
+            this.currBadApps.TabStop = false;
+            // 
             // initialAnnoyanceWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 450);
+            this.Controls.Add(this.currBadApps);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.state_Text);
             this.Controls.Add(this.display);
@@ -88,5 +103,6 @@ namespace mosquito
         private System.Windows.Forms.Timer newtimer;
         private System.Windows.Forms.TextBox state_Text;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox currBadApps;
     }
 }

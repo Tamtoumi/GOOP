@@ -73,6 +73,8 @@ namespace mosquito
         private void btnStop_Click(object sender, EventArgs e)
         {
             newForm.Show();
+            aw.disable = true;
+            aw.Close();
             this.Close();
             //forma.Show();
         }

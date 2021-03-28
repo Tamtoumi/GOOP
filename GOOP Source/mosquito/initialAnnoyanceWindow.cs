@@ -23,7 +23,7 @@ namespace mosquito
         buttonTrial bt_level2_1;
         buttonTrial bt_level2_2;
 
-
+        public bool disable = false;
         int total_popups;
         int completed_windows = 0;
         bool open = true;
@@ -42,6 +42,7 @@ namespace mosquito
             GUI.setFormVisuals(this, label1);
             GUI.richtxtSetUp(display);
             GUI.txtSetUp(state_Text);
+            GUI.txtSetUp(currBadApps);
             total_popups = 0;
             completed_windows = 0;
         }
@@ -68,7 +69,7 @@ namespace mosquito
                 if (open)
                 {
                     level2 = true;
-                    state_Text.Text = "level2 is coming";
+                    state_Text.Text = "You really need to close those apps.";
                     timer.Start();
                 }
             }
@@ -91,7 +92,7 @@ namespace mosquito
 
                     if (open)
                     {
-                        state_Text.Text = "level2 again";
+                        state_Text.Text = "Seriously, get back to work.";
                         timer.Start();
                     }
                 }
@@ -109,6 +110,8 @@ namespace mosquito
                 display.AppendText(writeText);
             }
 
+            state_Text.Text = "You are distracted. Get back to work.";
+            currBadApps.Text = "Applications Open";
             //Timer newtimer = new Timer();
             timer.Interval = (10 * 1000);
             timer.Tick += new EventHandler(newtimer_Tick);
@@ -127,7 +130,7 @@ namespace mosquito
             if (level1)
             {
                 level1 = false;
-                state_Text.Text = "level 1 activated";
+                state_Text.Text = "We warned you.";
                 timer.Stop();
 
 
@@ -145,7 +148,7 @@ namespace mosquito
             else if (level2)
             {
                 //level2 = false;
-                state_Text.Text = "level 2 activated";
+                state_Text.Text = "Here it comes again.";
                 timer.Stop();
 
                 for (int i = total_popups; i < total_popups + 30; i++)
@@ -183,7 +186,7 @@ namespace mosquito
 
         private void initialAnnoyanceWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!detection_signals.freetime_check && detection_signals.detected_check)
+            if ((!detection_signals.freetime_check && detection_signals.detected_check) && !disable)
             {
                 this.Hide();
                 e.Cancel = true;
