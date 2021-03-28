@@ -12,7 +12,7 @@ namespace mosquito
 {
     public partial class Productive : Form
     {
-        public int rTime = 0;
+        public static int rTime = 0;
         TaskViewer newForm = new TaskViewer();
         //TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
@@ -56,7 +56,7 @@ namespace mosquito
         // @brief deletes from SUA, updates text box accordingly if needed, cleans SUA, gives credit to user.
         // @param activates on enter of create button
         // @return Void
-        private void btnComplete_Click(object sender, EventArgs e)
+        public void btnComplete_Click(object sender, EventArgs e)
         {
             if (ProgressTracker.eraseFromSavedUserAssignments(txtCompletedTask.Text))
             {
