@@ -128,6 +128,7 @@ namespace mosquito
             this.btnUseTime.TabIndex = 9;
             this.btnUseTime.Text = "Use Reward Time";
             this.btnUseTime.UseVisualStyleBackColor = true;
+            this.btnUseTime.Click += new System.EventHandler(this.btnUseTime_Click);
             // 
             // btnComplete
             // 
