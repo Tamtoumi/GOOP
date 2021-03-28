@@ -39,9 +39,8 @@ namespace mosquito
             btnStart.ForeColor = System.Drawing.Color.MediumSeaGreen;
             btnStart.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            showRichTextBox();
             readSUAOnce();
-
+            
         }
 
         private void txtEnterTask_TextChanged(object sender, EventArgs e)
@@ -68,12 +67,14 @@ namespace mosquito
                  txtEnterTask.Text = usertask;
                  GUI.TaskDisplay(txtEnterTask, rtxtList);
               }
+              txtEnterTask.Text = "";
          }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             AppMan.updateSavedUserAssignments(txtEnterTask.Text);
-            GUI.TaskList(txtEnterTask, rtxtList);
+            GUI.TaskDisplay(txtEnterTask, rtxtList);
+            //AppMan.cleanSUA();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -116,9 +117,14 @@ namespace mosquito
 
         private void TaskViewer_Load(object sender, EventArgs e)
         {
-
+            rtxtList.ResetText();
+            showRichTextBox();
         }
         
+        public static void cleanBoard()
+        {
+
+        }
 
     }
 }

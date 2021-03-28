@@ -92,7 +92,8 @@ namespace mosquito
             rtxtBox.Text = "";
             foreach (var text in enteredTasks)
             {
-                rtxtBox.AppendText(text);
+                if (text != "- \r\n")
+                    rtxtBox.AppendText(text);
             }
 
         }
@@ -107,7 +108,7 @@ namespace mosquito
 
             // enters and displays the list of tasks entered by user 
             rtxtBox.AppendText("- " + txtBox.Text + "\r\n");
-
+            txtBox.Text = "";
         }
 
         //places SUA in enteredTasks in proper form. only used once.

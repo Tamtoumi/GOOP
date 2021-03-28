@@ -572,5 +572,65 @@ namespace mosquito
             return SUA;
         }
 
+
+        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
+        // @param input A string containg text to be saved to a file
+        // @return Void
+        public static bool eraseFromSavedUserAssignments(string PossibleCompleteTask)
+        {
+            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string rawSUA;
+            rawSUA = File.ReadAllText(newpath);
+            string[] SUA = rawSUA.Split('`');
+            List<string> SUAList = SUA.Cast<string>().ToList();
+            SUAList.Remove("");
+            if (SUAList.Remove(PossibleCompleteTask))
+            {
+                File.WriteAllText(newpath, String.Empty);
+                foreach (string task in SUAList)
+                {
+                    AppMan.updateSavedUserAssignments(task);
+                }
+                return true;
+            }
+            else 
+                return false;
+        }
+
+        // @brief Update TaskViewer by adding SavedUserAssignments.txt and modifying it.
+        // @param input A string containg text to be saved to a file
+        // @return Void
+        public static void cleanSUA()
+        {
+            string newpath = FormatPath("\\SavedUserAssignments.txt");
+            string rawSUA;
+            rawSUA = File.ReadAllText(newpath);
+
+            char[] rawSUAchars = rawSUA.ToCharArray();  
+            int i = 0;
+            foreach (char possableBacktick in rawSUAchars)  
+            {  
+                if (possableBacktick == '`')
+                {
+                    if (rawSUAchars.Length >= i++ && rawSUAchars[i++] == '`')
+                    {
+                        try 
+                        { 
+                        rawSUAchars = new string(rawSUAchars).Remove(i,i).ToCharArray();
+                        } catch { }
+                        i--;
+                    }
+                        
+                }
+                i++;
+            }   
+            string[] SUA = rawSUA.Split('`');
+            File.WriteAllText(newpath, String.Empty);
+            foreach (string task in SUA)
+            {
+                AppMan.updateSavedUserAssignments(task);
+            }
+        }
+
     }
 }

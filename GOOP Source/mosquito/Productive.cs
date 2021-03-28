@@ -52,8 +52,20 @@ namespace mosquito
             newForm = formTV;
         }
 
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            if (AppMan.eraseFromSavedUserAssignments(txtCompletedTask.Text))
+            {
+                rtxtTaskList.ResetText();
+                showTextBoxRich();
+            }
+            TaskViewer.cleanBoard();
+            //AppMan.cleanSUA();
+        }
+
         private void btnStop_Click(object sender, EventArgs e)
         {
+            TaskViewer.cleanBoard();
             newForm.Show();
             this.Close();
             //forma.Show();
@@ -69,6 +81,7 @@ namespace mosquito
                  txtCompletedTask.Text = usertask;
                  GUI.TaskDisplay(txtCompletedTask, rtxtTaskList);
               }
+              txtCompletedTask.Text = "";
         }
 
         private void Productive_Load(object sender, EventArgs e)

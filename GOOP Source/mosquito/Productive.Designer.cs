@@ -137,6 +137,7 @@ namespace mosquito
             this.btnComplete.TabIndex = 10;
             this.btnComplete.Text = "Completed";
             this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // btnEdit
             // 
