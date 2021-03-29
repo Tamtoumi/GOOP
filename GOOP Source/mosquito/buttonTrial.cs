@@ -10,21 +10,42 @@ using System.Windows.Forms;
 
 namespace mosquito
 {
+    /// Author: Henry Reynaud
+    /// <summary>
+    /// Button trial is another annoyance window created by the initialAnnoyanceWindow.
+    /// In this window, the user is shown 25 identical buttons, but only one of them can
+    /// close the window. The user cannot minimize, click off, or close the window otherwise.
+    /// The correct button is randomly chosen each time the window is created.
+    /// </summary>
     public partial class buttonTrial : Form
     {
+        //used for choosing a random button and checking if the correct one was clicked
         static System.Random random = new System.Random();
         public List<int> validNumbers = new List<int>();
-        int randomNumber = random.Next(1, 26);
+        private int randomNumber = random.Next(1, 26);
 
-        initialAnnoyanceWindow parent;
-        int level;
+        //values from the parent window, and a bool for if the window was completed successfully
+        public initialAnnoyanceWindow parent;
+        public int level;
         public bool completed = false;
 
+        /// <summary>
+        /// Constructor for the button trial window.
+        /// </summary>
         public buttonTrial()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Additional constructor for creating it from the initialAnnoyanceWindow, saving the appropriate values.
+        /// </summary>
+        /// <param name="from">
+        /// Instance of parent initialAnnoyanceWindow
+        /// </param>
+        /// <param name="given_level">
+        /// Level of annoyance that the window was created in.
+        /// </param>
         public buttonTrial(initialAnnoyanceWindow from, int given_level)
         {
             InitializeComponent();

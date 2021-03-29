@@ -10,31 +10,44 @@ using System.Windows.Forms;
 
 namespace mosquito
 {
+    ///Author: Henry Reynaud
+    /// <summary>
+    /// This form serves as the initial window a user will get if they are using bad applications
+    /// while they have our program enabled. It also serves as the parent to create the annoying
+    /// popup windows, captcha windows, and button trial windows to disturb and annoy the user. 
+    /// The window also displays which applications are causing it to pop up, allowing the user a
+    /// a chance to close out of them before the annoyance begins.
+    /// </summary>
     public partial class initialAnnoyanceWindow : Form 
     { 
-        Timer timer = new Timer();
-        Timer timer2 = new Timer();
+        //timers to track when to cause popups and to check if the popups should be closed
+        private Timer timer = new Timer();
+        private Timer timer2 = new Timer();
 
+        //list which displays in the form's textbox, showing which applications are causing the window to show
         public static List<string> displayList;
-        popupWindow[] popups = new popupWindow[100];
-        captchaWindow captcha;
-        captchaWindow captcha_level2_1;
-        captchaWindow captcha_level2_2;
-        buttonTrial bt_level2_1;
-        buttonTrial bt_level2_2;
+        
+        //the various instances of the popup windows that can be created from this form to annoy the user
+        public popupWindow[] popups = new popupWindow[100];
+        public captchaWindow captcha;
+        public captchaWindow captcha_level2_1;
+        public captchaWindow captcha_level2_2;
+        public buttonTrial bt_level2_1;
+        public buttonTrial bt_level2_2;
 
+        //variables for tracking if and when to shut down the annoyance window
         public bool disable = false;
-        int total_popups;
-        int completed_windows = 0;
-        bool open = true;
+        private int total_popups;
+        private int completed_windows = 0;
+        public bool open = true;
 
-        FormCollection fc = Application.OpenForms;
+        //levels to monitor the intensity of the annoyance popup windows 
+        private bool level1 = true;
+        private bool level2 = false;
 
-
-
-        bool level1 = true;
-        bool level2 = false;
-
+        /// <summary>
+        /// Constructor for the class - sets visual style and sets some parameters
+        /// </summary>
         public initialAnnoyanceWindow()
         {
             InitializeComponent();
@@ -46,11 +59,26 @@ namespace mosquito
             completed_windows = 0;
         }
 
+        /// <summary>
+        /// Updates the list of bad applications which are currently running to display them
+        /// on the form's textbox. Also clears the popup windows on the screen.
+        /// </summary>
+        /// <param name="newlist">
+        /// The updated list of currently running bad applications, given by AppDetector
+        /// </param>
         public static void update_Annoyance_List(List<string> newlist)
         {
             displayList = newlist;
         }
 
+        /// <summary>
+        /// Function which is called by the child captcha and button trial forms created by this
+        /// this form. A way of ensuring those forms get completed. This function then determines
+        /// if this level of annoyance is complete and resumes the timers for the form. 
+        /// </summary>
+        /// <param name="level">
+        /// Annoyance level that the forms were created in -- used to determine which level will be next
+        /// </param>
         public void returnFromLevel(int level)
         {
             //this.Show();
@@ -100,6 +128,12 @@ namespace mosquito
         }
 
 
+        /// <summary>
+        /// Loads the initialAnnoyanceWindow instance -- displasys the textbox with the current
+        /// list of bad applications running, and creats the timers and begins them.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void initialAnnoyanceWindow_Load(object sender, EventArgs e)
         {
             display.ReadOnly = true;
@@ -124,6 +158,18 @@ namespace mosquito
 
         }
 
+        //@brief - Timer tick event which triggers the creation of the popups and captcha and/or 
+        //          button trial windows, depending on the current annoyance levels.
+        //@param sender
+        //@param e
+        //@return void
+
+        /// <summary>
+        /// Timer tick event which triggers the creation of the popups and captcha and/or  
+        /// button trial windows, depending on the current annoyance levels.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newtimer_Tick(object sender, EventArgs e)
         {
             if (level1)
@@ -173,6 +219,11 @@ namespace mosquito
             }
         }
 
+        /// <summary>
+        /// Timer to update the displayed list of bad applications.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer2_Tick(object sender, EventArgs e)
         {
             display.Text = "";
@@ -183,6 +234,15 @@ namespace mosquito
             }
         }
 
+        /// <summary>
+        /// The closing function for this form. First checks if the user is trying to close it
+        /// without having closed their bad applications or enabling their free time, where it will 
+        /// then stay open in the background. Otherwise, it will stop the timers, close out all 
+        /// open popups, but the captcha and button trial windows will need to be completed still
+        /// before they close out.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void initialAnnoyanceWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if ((!detection_signals.freetime_check && detection_signals.detected_check) && !disable)
@@ -239,6 +299,12 @@ namespace mosquito
             }
         }
 
+        /// <summary>
+        /// A sized changed function for this form which prevents the user from 
+        /// minimizing this window. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void initialAnnoyanceWindow_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)

@@ -11,19 +11,47 @@ using System.Windows.Forms;
 
 namespace mosquito
 {
+    ///Author: Henry Reynaud
+    /// <summary>
+    /// A captcha window, which is one form of annoyance for the user that is spawned 
+    /// from the initialAnnoyanceWindow. The user must select the correct pictures from
+    /// the given nine to close this window. If they try to exit out before completing it, 
+    /// or complete it incorrectly, another captcha window will be created in its place.
+    /// The images are grabbed from a local file of images, and they are randomly arranged
+    /// in the nine possible locations. 
+    /// </summary>
     public partial class captchaWindow : Form
     {
+        //used to create the random usage of the pictures in the captcha
         System.Random random = new System.Random();
-        bool[] correct = new bool[9];
+        private bool[] correct = new bool[9];
+        
+        //values given from the parent initialAnnoyanceWindow and also to see if the captcha was completed
         public bool completed = false;
-        initialAnnoyanceWindow parent;
-        int level;
+        public initialAnnoyanceWindow parent;
+        private int level;
 
+        /// <summary>
+        /// Constructor for the captcha window
+        /// </summary>
         public captchaWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Second constructor for the captcha windows, which saves the parent instance of the 
+        /// initialAnnoyanceWindow which created it, and which level of annoyance it is in. 
+        /// Also sets of the nine images in the form by randomly selecting images from the 
+        /// local folder of images and saves which checkboxes need to be clicked to 
+        /// correctly complete the captcha window.
+        /// </summary>
+        /// <param name="from">
+        /// The initialAnnoyanceWindow that created this captcha window.
+        /// </param>
+        /// <param name="given">
+        /// The level of annoyance that this captcha window was created in.
+        /// </param>
         public captchaWindow(initialAnnoyanceWindow from, int given)
         {
             InitializeComponent();
@@ -82,6 +110,17 @@ namespace mosquito
 
         }
 
+        /// <summary>
+        /// Function used to resize the images to correctly fit them into the checkboxes
+        /// on the form.
+        /// </summary>
+        /// <param name="imgToResize">
+        /// The image that needs to be resized
+        /// </param>
+        /// <param name="size">
+        /// The desired size of the output image.
+        /// </param>
+        /// <returns></returns>
         public static Image resizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
@@ -93,6 +132,14 @@ namespace mosquito
 
         }
 
+        /// <summary>
+        /// Each checkbox had to have its checkChanged function done 
+        /// individually, but they each simply change the border color
+        /// of the checkbox to green when selected to help the user see
+        /// which ones they have already clicked on.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.FlatAppearance.BorderColor == Color.Black)
@@ -206,6 +253,15 @@ namespace mosquito
 
         }
 
+        /// <summary>
+        /// The submit button on the form. When clicked by the user, it
+        /// checks through each checkbox and makes sure that the correct 
+        /// checkboxes were clicked on and that the wrong ones were not 
+        /// selected. It sets the completed value appropriately and closes
+        /// this instance of the captcha window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             bool isChecked;
@@ -229,6 +285,13 @@ namespace mosquito
 
         }
 
+        /// <summary>
+        /// Closing function for the window. Either opens a new captcha window
+        /// or returns to the initialAnnoyanceWindow, depending on if the 
+        /// captcha was completed successfully.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void captchaWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!completed)
@@ -248,6 +311,11 @@ namespace mosquito
 
         }
 
+        /// <summary>
+        /// Prevents this window from being minimized by the user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void captchaWindow_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
