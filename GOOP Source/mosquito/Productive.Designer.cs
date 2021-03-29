@@ -66,7 +66,7 @@ namespace mosquito
             // rtxtTaskList
             // 
             this.rtxtTaskList.Location = new System.Drawing.Point(38, 162);
-            this.rtxtTaskList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtxtTaskList.Margin = new System.Windows.Forms.Padding(2);
             this.rtxtTaskList.Name = "rtxtTaskList";
             this.rtxtTaskList.Size = new System.Drawing.Size(297, 214);
             this.rtxtTaskList.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace mosquito
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(38, 388);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(296, 19);
             this.progressBar1.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace mosquito
             // btnStop
             // 
             this.btnStop.Location = new System.Drawing.Point(350, 436);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(2);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(94, 44);
             this.btnStop.TabIndex = 4;
@@ -104,7 +104,7 @@ namespace mosquito
             // txtCompletedTask
             // 
             this.txtCompletedTask.Location = new System.Drawing.Point(67, 74);
-            this.txtCompletedTask.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCompletedTask.Margin = new System.Windows.Forms.Padding(2);
             this.txtCompletedTask.Name = "txtCompletedTask";
             this.txtCompletedTask.Size = new System.Drawing.Size(202, 20);
             this.txtCompletedTask.TabIndex = 6;
@@ -128,11 +128,12 @@ namespace mosquito
             this.lblTimeRewarded.Size = new System.Drawing.Size(35, 13);
             this.lblTimeRewarded.TabIndex = 8;
             this.lblTimeRewarded.Text = "label2";
+            this.lblTimeRewarded.Click += new System.EventHandler(this.lblTimeRewarded_Click);
             // 
             // btnUseTime
             // 
             this.btnUseTime.Location = new System.Drawing.Point(218, 436);
-            this.btnUseTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUseTime.Margin = new System.Windows.Forms.Padding(2);
             this.btnUseTime.Name = "btnUseTime";
             this.btnUseTime.Size = new System.Drawing.Size(117, 43);
             this.btnUseTime.TabIndex = 9;
@@ -143,7 +144,7 @@ namespace mosquito
             // btnComplete
             // 
             this.btnComplete.Location = new System.Drawing.Point(290, 66);
-            this.btnComplete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnComplete.Margin = new System.Windows.Forms.Padding(2);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(101, 35);
             this.btnComplete.TabIndex = 10;
@@ -154,7 +155,7 @@ namespace mosquito
             // btnEdit
             // 
             this.btnEdit.Location = new System.Drawing.Point(302, 117);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(80, 34);
             this.btnEdit.TabIndex = 11;
@@ -179,7 +180,7 @@ namespace mosquito
             this.Controls.Add(this.rtxtTaskList);
             this.Controls.Add(this.lblTasks);
             this.Controls.Add(this.title);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Productive";
             this.Text = "Productive";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Productive_FormClosing);

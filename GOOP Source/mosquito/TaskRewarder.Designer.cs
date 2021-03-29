@@ -70,24 +70,26 @@
             this.ClockFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClockFace.Location = new System.Drawing.Point(14, 67);
             this.ClockFace.Name = "ClockFace";
-            this.ClockFace.Size = new System.Drawing.Size(347, 91);
+            this.ClockFace.Size = new System.Drawing.Size(284, 73);
             this.ClockFace.TabIndex = 2;
             this.ClockFace.Text = "00:00:00";
+            this.ClockFace.Click += new System.EventHandler(this.ClockFace_Click);
             // 
             // hourBox
             // 
             this.hourBox.FormattingEnabled = true;
             this.hourBox.Location = new System.Drawing.Point(12, 12);
             this.hourBox.Name = "hourBox";
-            this.hourBox.Size = new System.Drawing.Size(104, 24);
+            this.hourBox.Size = new System.Drawing.Size(104, 21);
             this.hourBox.TabIndex = 3;
+            this.hourBox.SelectedIndexChanged += new System.EventHandler(this.hourBox_SelectedIndexChanged);
             // 
             // minuteBox
             // 
             this.minuteBox.FormattingEnabled = true;
             this.minuteBox.Location = new System.Drawing.Point(122, 12);
             this.minuteBox.Name = "minuteBox";
-            this.minuteBox.Size = new System.Drawing.Size(104, 24);
+            this.minuteBox.Size = new System.Drawing.Size(104, 21);
             this.minuteBox.TabIndex = 4;
             // 
             // secondBox
@@ -95,7 +97,7 @@
             this.secondBox.FormattingEnabled = true;
             this.secondBox.Location = new System.Drawing.Point(232, 12);
             this.secondBox.Name = "secondBox";
-            this.secondBox.Size = new System.Drawing.Size(104, 24);
+            this.secondBox.Size = new System.Drawing.Size(104, 21);
             this.secondBox.TabIndex = 5;
             // 
             // label1
@@ -103,7 +105,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 17);
+            this.label1.Size = new System.Drawing.Size(234, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "You have this much earned procrastination time:";
             // 

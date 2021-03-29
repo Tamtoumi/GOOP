@@ -63,9 +63,12 @@ namespace mosquito
             {
                 rtxtTaskList.ResetText();
                 showTextBoxRich();
+                rTime += 5;
             }
             ProgressTracker.cleanSUA2();
-            rTime += 5;
+            //rTime += 5;
+            Console.WriteLine(rTime);
+            this.lblTimeRewarded.Text = rTime.ToString();
         }
 
 
@@ -76,8 +79,11 @@ namespace mosquito
         private void btnStop_Click(object sender, EventArgs e)
         {
             newForm.Show();
-            aw.disable = true;
-            aw.Close();
+            if (open)
+            {
+                aw.disable = true;
+                aw.Close();
+            }
             this.Close();
             //forma.Show();
         }
@@ -114,7 +120,7 @@ namespace mosquito
             timer2.Start();
 
             ProgressTracker.makeSavedUserAssignments();
-
+            this.lblTimeRewarded.Text = rTime.ToString();
             //this.lblTimeRewarded.Text = newForm2.rewardTime;
 
             //rtxtTaskList.Text = 
@@ -180,6 +186,11 @@ namespace mosquito
             TaskRewarder newForms = new TaskRewarder(this);
             newForms.Show();
             this.Hide();
+        }
+
+        private void lblTimeRewarded_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

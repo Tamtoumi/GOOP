@@ -39,9 +39,18 @@ namespace mosquito
 
                 this.secondBox.Items.Add(i.ToString());
             }
-            this.minuteBox.SelectedIndex = 4;
-
-            this.secondBox.SelectedIndex = 59;
+            //this.minuteBox.SelectedIndex = 4;
+            if (Productive.rTime < 1)
+            {
+                this.minuteBox.SelectedIndex = 0;
+                this.secondBox.SelectedIndex = 1;
+            }
+            else
+            {
+                this.minuteBox.SelectedIndex = Productive.rTime - 1;
+                this.secondBox.SelectedIndex = 59;
+            }
+            //this.secondBox.SelectedIndex = 59;
             //Creating 0-24 range for hours, although this limit will likely not be hit
             for (int j = 0; j < 24; j++)
             {
@@ -150,6 +159,16 @@ namespace mosquito
             detection_signals.set_freetime(false);
            
             parent.Show();
+        }
+
+        private void ClockFace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hourBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
