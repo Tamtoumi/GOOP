@@ -97,3 +97,4 @@ C:\Users\hfrey\OneDrive\Documents\GitHub\project\GOOP Source\mosquito\obj\Debug\
 C:\Users\hfrey\OneDrive\Documents\GitHub\project\GOOP Source\mosquito\obj\Debug\mosquito.exe
 C:\Users\hfrey\OneDrive\Documents\GitHub\project\GOOP Source\mosquito\obj\Debug\mosquito.pdb
 C:\Users\Ross\Desktop\GOOP\GOOP Source\mosquito\obj\Debug\mosquito.TaskRewarder.resources
+C:\Users\hfrey\OneDrive\Documents\GitHub\project\GOOP Source\mosquito\obj\Debug\mosquito.TaskRewarder.resources

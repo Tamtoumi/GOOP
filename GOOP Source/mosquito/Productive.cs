@@ -22,6 +22,7 @@ namespace mosquito
         Timer timer1;
         Timer timer2;
 
+        FormCollection fc = new FormCollection();
 
         public Productive()
         {
@@ -176,9 +177,9 @@ namespace mosquito
         private void btnUseTime_Click(object sender, EventArgs e)
         {
             //newForm2.Show();
-            TaskRewarder newForms = new TaskRewarder();
+            TaskRewarder newForms = new TaskRewarder(this);
             newForms.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

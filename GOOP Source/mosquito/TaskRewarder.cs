@@ -17,14 +17,16 @@ namespace mosquito
 
         public int Rwrdmin { get => rwrdmin; set => rwrdmin = value; }
         int seconds;
+        Productive parent;
 
 
         //static int minutes = 5;
         //static int seconds = minutes * 60;
 
-        public TaskRewarder()
+        public TaskRewarder(Productive frm)
         {
             InitializeComponent();
+            parent = frm;
         }
 
 
@@ -89,6 +91,7 @@ namespace mosquito
 
             if (seconds > 0)
             {
+                detection_signals.set_freetime(true);
                 seconds--;
 
                 int min = seconds / 60;
@@ -136,8 +139,17 @@ namespace mosquito
             else
             {
                 this.timer1.Stop();
+                
                 MessageBox.Show("You have run out of time. Get back to work!");
+                this.Close();
             }
+        }
+
+        private void TaskRewarder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            detection_signals.set_freetime(false);
+           
+            parent.Show();
         }
     }
 }

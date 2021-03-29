@@ -133,7 +133,7 @@ namespace mosquito
             detected_check = check;
         }
 
-        public void set_freetime(bool freetime)
+        public static void set_freetime(bool freetime)
         {
             freetime_check = freetime;
         }
