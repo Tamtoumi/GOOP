@@ -115,13 +115,12 @@ namespace mosquito
         public static void ReadSUA()
         {
             string[] SUA = ProgressTracker.readSavedUserAssignments();
-
-             foreach (string SingleUA in SUA)
-             {
-                    string tasks = "- " + SingleUA + "\r\n";
-                    enteredTasks.Add(tasks);
-             }
-             enteredTasks.RemoveAt(enteredTasks.Count - 1);
+            foreach (string SingleUA in SUA)
+            {
+                string tasks = "- " + SingleUA + "\r\n";
+                enteredTasks.Add(tasks);
+            }
+            enteredTasks.RemoveAt(enteredTasks.Count - 1);
         }
 
     }

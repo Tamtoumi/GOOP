@@ -16,7 +16,7 @@ namespace mosquito
         public string rewardTime;
 
         public int Rwrdmin { get => rwrdmin; set => rwrdmin = value; }
-
+        int seconds;
 
 
         //static int minutes = 5;

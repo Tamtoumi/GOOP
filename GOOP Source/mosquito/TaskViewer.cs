@@ -62,16 +62,23 @@ namespace mosquito
         // @return Void
          private void showRichTextBox()
          {
-              //this will show every task in the gui
-              string[] SavedUserAssignments = ProgressTracker.readSavedUserAssignments();
-              string[] dist = SavedUserAssignments.Distinct().ToArray();
-              foreach (string usertask in dist)
-              {
-                 txtEnterTask.Text = usertask;
-                 GUI.TaskDisplay(txtEnterTask, rtxtList);
-              }
-              txtEnterTask.Text = "";
-              txtDeleteTask.Text = "";
+            //this will show every task in the gui
+            string[] SavedUserAssignments = ProgressTracker.readSavedUserAssignments();
+            try
+            {
+                string[] dist = SavedUserAssignments.Distinct().ToArray();
+                foreach (string usertask in dist)
+                {
+                    txtEnterTask.Text = usertask;
+                    GUI.TaskDisplay(txtEnterTask, rtxtList);
+                }
+            }
+            catch(System.ArgumentNullException e)
+            {
+                return;
+            }
+            txtEnterTask.Text = "";
+            txtDeleteTask.Text = "";
          }
 
         // @brief puts User input into SUA, enteredtasks in GUI and cleans file.

@@ -112,6 +112,7 @@ namespace mosquito
             timer2.Tick += new EventHandler(timer2_Tick);
             timer2.Start();
 
+            ProgressTracker.makeSavedUserAssignments();
 
             //this.lblTimeRewarded.Text = newForm2.rewardTime;
 

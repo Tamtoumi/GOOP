@@ -554,7 +554,8 @@ namespace mosquito
              if (!File.Exists(newpath))
              {
                 //Create SUA.txt
-                File.Create(newpath);
+                var file = File.Create(newpath);
+                file.Close();
              }
         }
 
@@ -575,10 +576,17 @@ namespace mosquito
         public static string[] readSavedUserAssignments()
         {
             string newpath = AppMan.FormatPath("\\SavedUserAssignments.txt");
+            if (!File.Exists(newpath))
+            {
+                //Create SUA.txt
+                var file = File.Create(newpath);
+                file.Close();
+            }
             string rawSUA;
             rawSUA = File.ReadAllText(newpath);
             string[] SUA = rawSUA.Split('`');
             return SUA;
+            
         }
 
 
