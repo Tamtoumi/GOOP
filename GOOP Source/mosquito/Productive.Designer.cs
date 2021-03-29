@@ -112,7 +112,7 @@ namespace mosquito
             // lblRewardTime
             // 
             this.lblRewardTime.AutoSize = true;
-            this.lblRewardTime.Location = new System.Drawing.Point(27, 451);
+            this.lblRewardTime.Location = new System.Drawing.Point(11, 451);
             this.lblRewardTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRewardTime.Name = "lblRewardTime";
             this.lblRewardTime.Size = new System.Drawing.Size(76, 13);
@@ -122,7 +122,7 @@ namespace mosquito
             // lblTimeRewarded
             // 
             this.lblTimeRewarded.AutoSize = true;
-            this.lblTimeRewarded.Location = new System.Drawing.Point(142, 451);
+            this.lblTimeRewarded.Location = new System.Drawing.Point(116, 451);
             this.lblTimeRewarded.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTimeRewarded.Name = "lblTimeRewarded";
             this.lblTimeRewarded.Size = new System.Drawing.Size(35, 13);

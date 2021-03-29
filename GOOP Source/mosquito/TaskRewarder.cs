@@ -27,6 +27,11 @@ namespace mosquito
         {
             InitializeComponent();
             parent = frm;
+            GUI.setFormVisuals(this, title);
+            //GUI.labelSetUp(ClockFace);
+            //GUI.labelSetUp(label1);
+            GUI.btnSetUp(Start);
+            GUI.btnSetUp(Stop);
         }
 
 
@@ -39,24 +44,34 @@ namespace mosquito
 
                 this.secondBox.Items.Add(i.ToString());
             }
-            //this.minuteBox.SelectedIndex = 4;
-            if (Productive.rTime < 1)
-            {
-                this.minuteBox.SelectedIndex = 0;
-                this.secondBox.SelectedIndex = 1;
-            }
-            else
-            {
-                this.minuteBox.SelectedIndex = Productive.rTime - 1;
-                this.secondBox.SelectedIndex = 59;
-            }
-            //this.secondBox.SelectedIndex = 59;
+
             //Creating 0-24 range for hours, although this limit will likely not be hit
             for (int j = 0; j < 24; j++)
             {
                 this.hourBox.Items.Add(j.ToString());
             }
-            this.hourBox.SelectedIndex = 0;
+            //this.hourBox.SelectedIndex = 0;
+
+            //this.minuteBox.SelectedIndex = 4;
+            if (Productive.rTime < 1)
+            {
+                this.hourBox.SelectedIndex = 0;
+                this.minuteBox.SelectedIndex = 0;
+                this.secondBox.SelectedIndex = 1;
+            }
+            else if(Productive.rTime > 60)
+            {
+                this.hourBox.SelectedIndex = Productive.rTime / 60;
+                this.minuteBox.SelectedIndex = (Productive.rTime % 60) - 1;
+                this.secondBox.SelectedIndex = 59;
+            }
+            else
+            {
+                this.hourBox.SelectedIndex = 0;
+                this.minuteBox.SelectedIndex = Productive.rTime - 1;
+                this.secondBox.SelectedIndex = 59;
+            }
+            //this.secondBox.SelectedIndex = 59;
 
             //Reads the hours, minutes, and seconds from each box entry
             int hr = int.Parse(this.hourBox.SelectedItem.ToString());

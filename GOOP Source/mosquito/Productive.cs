@@ -67,8 +67,8 @@ namespace mosquito
             }
             ProgressTracker.cleanSUA2();
             //rTime += 5;
-            Console.WriteLine(rTime);
-            this.lblTimeRewarded.Text = rTime.ToString();
+            //Console.WriteLine(rTime);
+            this.lblTimeRewarded.Text = rTime.ToString() + " minutes";
         }
 
 

@@ -48,13 +48,13 @@ namespace mosquito
 
 
             }
-            foreach (var button in this.Controls.OfType<Button>())
-            {
-                if (isTheOne(int.Parse(button.Name.Substring(6))))
-                {
-                    button.BackColor = Color.Green;
-                }
-            }
+            //foreach (var button in this.Controls.OfType<Button>())
+            //{
+            //    if (isTheOne(int.Parse(button.Name.Substring(6))))
+            //    {
+            //        button.BackColor = Color.Green;
+            //    }
+            //}
         }
 
         private bool isTheOne(int index)

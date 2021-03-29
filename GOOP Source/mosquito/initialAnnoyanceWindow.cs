@@ -34,7 +34,6 @@ namespace mosquito
 
         bool level1 = true;
         bool level2 = false;
-        bool level3 = false;
 
         public initialAnnoyanceWindow()
         {

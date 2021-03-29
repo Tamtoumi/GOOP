@@ -45,10 +45,9 @@ namespace mosquito
             // 
             // BadAppNumIn
             // 
-            this.BadAppNumIn.Location = new System.Drawing.Point(371, 85);
-            this.BadAppNumIn.Margin = new System.Windows.Forms.Padding(4);
+            this.BadAppNumIn.Location = new System.Drawing.Point(278, 69);
             this.BadAppNumIn.Name = "BadAppNumIn";
-            this.BadAppNumIn.Size = new System.Drawing.Size(105, 54);
+            this.BadAppNumIn.Size = new System.Drawing.Size(79, 44);
             this.BadAppNumIn.TabIndex = 0;
             this.BadAppNumIn.Text = "Enter";
             this.BadAppNumIn.UseVisualStyleBackColor = true;
@@ -56,10 +55,9 @@ namespace mosquito
             // 
             // DelBadAppNum
             // 
-            this.DelBadAppNum.Location = new System.Drawing.Point(371, 488);
-            this.DelBadAppNum.Margin = new System.Windows.Forms.Padding(4);
+            this.DelBadAppNum.Location = new System.Drawing.Point(278, 396);
             this.DelBadAppNum.Name = "DelBadAppNum";
-            this.DelBadAppNum.Size = new System.Drawing.Size(105, 56);
+            this.DelBadAppNum.Size = new System.Drawing.Size(79, 46);
             this.DelBadAppNum.TabIndex = 1;
             this.DelBadAppNum.Text = "Delete";
             this.DelBadAppNum.UseVisualStyleBackColor = true;
@@ -67,92 +65,94 @@ namespace mosquito
             // 
             // InstalledAppList
             // 
-            this.InstalledAppList.Location = new System.Drawing.Point(527, 101);
-            this.InstalledAppList.Margin = new System.Windows.Forms.Padding(4);
+            this.InstalledAppList.Location = new System.Drawing.Point(395, 82);
             this.InstalledAppList.Name = "InstalledAppList";
-            this.InstalledAppList.Size = new System.Drawing.Size(483, 524);
+            this.InstalledAppList.Size = new System.Drawing.Size(363, 426);
             this.InstalledAppList.TabIndex = 2;
             this.InstalledAppList.Text = "";
             this.InstalledAppList.TextChanged += new System.EventHandler(this.InstalledAppList_TextChanged);
             // 
             // ShowBadAppList
             // 
-            this.ShowBadAppList.Location = new System.Drawing.Point(92, 237);
-            this.ShowBadAppList.Margin = new System.Windows.Forms.Padding(4);
+            this.ShowBadAppList.Location = new System.Drawing.Point(69, 193);
             this.ShowBadAppList.Name = "ShowBadAppList";
-            this.ShowBadAppList.Size = new System.Drawing.Size(379, 168);
+            this.ShowBadAppList.Size = new System.Drawing.Size(285, 137);
             this.ShowBadAppList.TabIndex = 3;
             this.ShowBadAppList.Text = "";
             this.ShowBadAppList.TextChanged += new System.EventHandler(this.ShowBadAppList_TextChanged);
             // 
             // UserInput
             // 
-            this.UserInput.Location = new System.Drawing.Point(92, 101);
-            this.UserInput.Margin = new System.Windows.Forms.Padding(4);
+            this.UserInput.Location = new System.Drawing.Point(69, 82);
             this.UserInput.Name = "UserInput";
-            this.UserInput.Size = new System.Drawing.Size(221, 22);
+            this.UserInput.Size = new System.Drawing.Size(167, 20);
             this.UserInput.TabIndex = 4;
             this.UserInput.TextChanged += new System.EventHandler(this.UserInput_TextChanged);
             // 
             // UserDel
             // 
-            this.UserDel.Location = new System.Drawing.Point(92, 505);
-            this.UserDel.Margin = new System.Windows.Forms.Padding(4);
+            this.UserDel.Location = new System.Drawing.Point(69, 410);
             this.UserDel.Name = "UserDel";
-            this.UserDel.Size = new System.Drawing.Size(221, 22);
+            this.UserDel.Size = new System.Drawing.Size(167, 20);
             this.UserDel.TabIndex = 5;
             this.UserDel.TextChanged += new System.EventHandler(this.UserDel_TextChanged);
             // 
             // title
             // 
             this.title.AutoSize = true;
-            this.title.Location = new System.Drawing.Point(480, 9);
+            this.title.Location = new System.Drawing.Point(360, 7);
+            this.title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(46, 17);
+            this.title.Size = new System.Drawing.Size(35, 13);
             this.title.TabIndex = 6;
             this.title.Text = "label1";
             // 
             // lblInputBadApp
             // 
             this.lblInputBadApp.AutoSize = true;
-            this.lblInputBadApp.Location = new System.Drawing.Point(41, 58);
+            this.lblInputBadApp.Location = new System.Drawing.Point(31, 47);
+            this.lblInputBadApp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInputBadApp.Name = "lblInputBadApp";
-            this.lblInputBadApp.Size = new System.Drawing.Size(199, 17);
+            this.lblInputBadApp.Size = new System.Drawing.Size(151, 13);
             this.lblInputBadApp.TabIndex = 7;
             this.lblInputBadApp.Text = "Input Bad Application Number:";
             // 
             // lblBadAppList
             // 
             this.lblBadAppList.AutoSize = true;
-            this.lblBadAppList.Location = new System.Drawing.Point(44, 188);
+            this.lblBadAppList.Location = new System.Drawing.Point(33, 153);
+            this.lblBadAppList.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBadAppList.Name = "lblBadAppList";
-            this.lblBadAppList.Size = new System.Drawing.Size(136, 17);
+            this.lblBadAppList.Size = new System.Drawing.Size(103, 13);
             this.lblBadAppList.TabIndex = 8;
             this.lblBadAppList.Text = "Bad Application List:";
             // 
             // lblDelete
             // 
             this.lblDelete.AutoSize = true;
-            this.lblDelete.Location = new System.Drawing.Point(47, 450);
+            this.lblDelete.Location = new System.Drawing.Point(35, 366);
+            this.lblDelete.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDelete.Name = "lblDelete";
-            this.lblDelete.Size = new System.Drawing.Size(223, 17);
+            this.lblDelete.Size = new System.Drawing.Size(181, 13);
             this.lblDelete.TabIndex = 9;
-            this.lblDelete.Text = "Enter Number to Delete From List:";
+            this.lblDelete.Text = "Enter Application to Delete From List:";
             // 
             // lblInstalledApps
             // 
             this.lblInstalledApps.AutoSize = true;
-            this.lblInstalledApps.Location = new System.Drawing.Point(524, 58);
+            this.lblInstalledApps.Location = new System.Drawing.Point(393, 47);
+            this.lblInstalledApps.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInstalledApps.Name = "lblInstalledApps";
-            this.lblInstalledApps.Size = new System.Drawing.Size(186, 17);
+            this.lblInstalledApps.Size = new System.Drawing.Size(140, 13);
             this.lblInstalledApps.TabIndex = 10;
             this.lblInstalledApps.Text = "List of Installed Applications:";
             // 
             // btnTaskViewer
             // 
-            this.btnTaskViewer.Location = new System.Drawing.Point(36, 562);
+            this.btnTaskViewer.Location = new System.Drawing.Point(27, 457);
+            this.btnTaskViewer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTaskViewer.Name = "btnTaskViewer";
-            this.btnTaskViewer.Size = new System.Drawing.Size(144, 63);
+            this.btnTaskViewer.Size = new System.Drawing.Size(108, 51);
             this.btnTaskViewer.TabIndex = 11;
             this.btnTaskViewer.Text = "Task Viewer";
             this.btnTaskViewer.UseVisualStyleBackColor = true;
@@ -160,10 +160,10 @@ namespace mosquito
             // 
             // ApplicationManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1031, 652);
+            this.ClientSize = new System.Drawing.Size(773, 530);
             this.Controls.Add(this.btnTaskViewer);
             this.Controls.Add(this.lblInstalledApps);
             this.Controls.Add(this.lblDelete);
@@ -176,7 +176,6 @@ namespace mosquito
             this.Controls.Add(this.InstalledAppList);
             this.Controls.Add(this.DelBadAppNum);
             this.Controls.Add(this.BadAppNumIn);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ApplicationManager";
             this.Text = "ApplicationManager";
             this.Load += new System.EventHandler(this.ApplicationManager_Load);

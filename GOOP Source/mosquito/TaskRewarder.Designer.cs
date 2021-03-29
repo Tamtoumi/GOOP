@@ -37,6 +37,7 @@
             this.minuteBox = new System.Windows.Forms.ComboBox();
             this.secondBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Start
@@ -68,7 +69,8 @@
             // 
             this.ClockFace.AutoSize = true;
             this.ClockFace.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClockFace.Location = new System.Drawing.Point(14, 67);
+            this.ClockFace.ForeColor = System.Drawing.Color.White;
+            this.ClockFace.Location = new System.Drawing.Point(12, 87);
             this.ClockFace.Name = "ClockFace";
             this.ClockFace.Size = new System.Drawing.Size(284, 73);
             this.ClockFace.TabIndex = 2;
@@ -103,15 +105,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 13);
+            this.label1.Size = new System.Drawing.Size(349, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "You have this much earned procrastination time:";
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Location = new System.Drawing.Point(326, 87);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(35, 13);
+            this.title.TabIndex = 7;
+            this.title.Text = "label2";
             // 
             // TaskRewarder
             // 
             this.ClientSize = new System.Drawing.Size(364, 252);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.secondBox);
             this.Controls.Add(this.minuteBox);
@@ -137,5 +151,6 @@
         private System.Windows.Forms.ComboBox minuteBox;
         private System.Windows.Forms.ComboBox secondBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
     }
 }
