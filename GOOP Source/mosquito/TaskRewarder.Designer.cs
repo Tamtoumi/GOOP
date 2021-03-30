@@ -75,7 +75,6 @@
             this.ClockFace.Size = new System.Drawing.Size(284, 73);
             this.ClockFace.TabIndex = 2;
             this.ClockFace.Text = "00:00:00";
-            this.ClockFace.Click += new System.EventHandler(this.ClockFace_Click);
             // 
             // hourBox
             // 
@@ -84,7 +83,6 @@
             this.hourBox.Name = "hourBox";
             this.hourBox.Size = new System.Drawing.Size(104, 21);
             this.hourBox.TabIndex = 3;
-            this.hourBox.SelectedIndexChanged += new System.EventHandler(this.hourBox_SelectedIndexChanged);
             // 
             // minuteBox
             // 

@@ -12,24 +12,20 @@ namespace mosquito
 {
     public partial class TaskRewarder : Form
     {
-        int rwrdmin = Productive.rTime;
-        public string rewardTime;
-
-        public int Rwrdmin { get => rwrdmin; set => rwrdmin = value; }
-        int seconds;
+        
         Productive parent;
+        int rwrdmin = Productive.rTime;
+        public int hours;
+        public int seconds;
+        public int minutes;
+        public int Sec =Productive.leftoverSeconds;
 
-
-        //static int minutes = 5;
-        //static int seconds = minutes * 60;
 
         public TaskRewarder(Productive frm)
         {
             InitializeComponent();
             parent = frm;
-            GUI.setFormVisuals(this, title);
-            //GUI.labelSetUp(ClockFace);
-            //GUI.labelSetUp(label1);
+            GUI.setFormVisuals(this, title);            
             GUI.btnSetUp(Start);
             GUI.btnSetUp(Stop);
         }
@@ -37,6 +33,7 @@ namespace mosquito
 
         private void TaskRewarder_Load(object sender, EventArgs e)
         {
+            this.Stop.Enabled = false;
             //Creating 0-59 range for minutes and seconds
             for (int i = 0; i < 60; i++)
             {
@@ -50,30 +47,27 @@ namespace mosquito
             {
                 this.hourBox.Items.Add(j.ToString());
             }
-            //this.hourBox.SelectedIndex = 0;
-
-            //this.minuteBox.SelectedIndex = 4;
-            if (Productive.rTime < 1)
+            //Reformats the integer values if the reward time is an hour or more
+            if (rwrdmin > 59)
             {
-                this.hourBox.SelectedIndex = 0;
-                this.minuteBox.SelectedIndex = 0;
-                this.secondBox.SelectedIndex = 1;
-            }
-            else if(Productive.rTime > 60)
-            {
-                this.hourBox.SelectedIndex = Productive.rTime / 60;
-                this.minuteBox.SelectedIndex = (Productive.rTime % 60) - 1;
-                this.secondBox.SelectedIndex = 59;
+                hours = rwrdmin / 60;
+                minutes = (rwrdmin % 60);
+                
             }
             else
             {
-                this.hourBox.SelectedIndex = 0;
-                this.minuteBox.SelectedIndex = Productive.rTime - 1;
-                this.secondBox.SelectedIndex = 59;
+                hours = 0;
+                minutes = rwrdmin;                
             }
-            //this.secondBox.SelectedIndex = 59;
+
+            this.hourBox.SelectedIndex = hours;
+            this.minuteBox.SelectedIndex = minutes;
+            this.secondBox.SelectedIndex = Sec;
+
+
 
             //Reads the hours, minutes, and seconds from each box entry
+
             int hr = int.Parse(this.hourBox.SelectedItem.ToString());
 
             int min = int.Parse(this.minuteBox.SelectedItem.ToString());
@@ -90,9 +84,9 @@ namespace mosquito
             this.minuteBox.Hide();
             this.secondBox.Hide();
 
-            rewardTime = this.ClockFace.ToString();
+            
         }
-
+        //Starts the timer and disables the start button
         private void Start_Click(object sender, EventArgs e)
         {
             this.Start.Enabled = false;
@@ -101,7 +95,7 @@ namespace mosquito
 
             this.timer1.Enabled = true;
         }
-
+        //Stop button stops the timer and reenables the start button
         private void Stop_Click(object sender, EventArgs e)
         {
             this.Start.Enabled = true;
@@ -124,7 +118,7 @@ namespace mosquito
 
                 int sec = seconds - (min * 60);
 
-
+                //This series of if statements is to deal with the string format for when the integer values goes below double digits
                 this.ClockFace.Text = hrs.ToString() + ":" + min.ToString() + ":" + sec.ToString();
 
                 if (hrs == 0)
@@ -132,20 +126,30 @@ namespace mosquito
                     this.ClockFace.Text = min.ToString() + ":" + sec.ToString();
                 }
 
-                if (hrs > 0 && min < 10)
+                if (min >= 60)
                 {
-                    this.ClockFace.Text = hrs.ToString() + ":0" + min.ToString() + ":" + sec.ToString();
+                    this.ClockFace.Text = hrs.ToString() + ":" + (min % 60).ToString() + ":" + sec.ToString();
+                }
+
+                if (hrs > 0 && (min%60) < 10)
+                {
+                    this.ClockFace.Text = hrs.ToString() + ":0" + (min % 60).ToString() + ":" + sec.ToString();
+                }
+                if ((min%60) < 10 && sec < 10)
+                {
+                    this.ClockFace.Text = hrs.ToString() + ":0" + (min % 60).ToString() + ":0" + sec.ToString();
+                }
+
+                if (hrs > 0 && min > 0 && sec < 10)
+                {
+                    this.ClockFace.Text = hrs.ToString() + ":" + (min % 60).ToString() + ":0" + sec.ToString();
                 }
 
                 if (hrs == 0 && min == 0)
                 {
                     this.ClockFace.Text = ":" + sec.ToString();
                 }
-
-                if (hrs > 0 && min > 0 && sec < 10)
-                {
-                    this.ClockFace.Text = hrs.ToString() + ":" + min.ToString() + ":0" + sec.ToString();
-                }
+                
 
                 if (hrs == 0 && min == 0 && sec < 10)
                 {
@@ -153,17 +157,26 @@ namespace mosquito
                 }
 
                 //Updates the combobox to be read again with the new remaining time
-                this.hourBox.SelectedIndex = hrs;
+                if (hrs > 0)
+                {
+                    this.hourBox.SelectedIndex = hrs;
+                    this.minuteBox.SelectedIndex = (min % 60);
+                    this.secondBox.SelectedIndex = sec;
+                }
+                else
+                {
+                    this.hourBox.SelectedIndex = hrs;
 
-                this.minuteBox.SelectedIndex = min;
+                    this.minuteBox.SelectedIndex = min;
 
-                this.secondBox.SelectedIndex = sec;
+                    this.secondBox.SelectedIndex = sec;
+                }
             }
             //Let's the user know the reward time is up, reactivates the preventer.
             else
             {
                 this.timer1.Stop();
-                
+
                 MessageBox.Show("You have run out of time. Get back to work!");
                 this.Close();
             }
@@ -172,18 +185,15 @@ namespace mosquito
         private void TaskRewarder_FormClosing(object sender, FormClosingEventArgs e)
         {
             detection_signals.set_freetime(false);
-           
+            //This updates the time kept in the productive class to keep the remaining time
+            Productive.rTime = seconds / 60;
+            Productive.leftoverSeconds = (seconds % 60);
+            
+
             parent.Show();
         }
 
-        private void ClockFace_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hourBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
+

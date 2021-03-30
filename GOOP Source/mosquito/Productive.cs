@@ -13,6 +13,8 @@ namespace mosquito
     public partial class Productive : Form
     {
         public static int rTime = 0;
+        public static int leftoverSeconds = 0;
+        public string rewardTime = rTime.ToString() + " minutes";
         TaskViewer newForm = new TaskViewer();
         //TaskRewarder newForm2 = new TaskRewarder();
         Form1 forma = new Form1();
@@ -66,9 +68,9 @@ namespace mosquito
                 rTime += 5;
             }
             ProgressTracker.cleanSUA2();
-            //rTime += 5;
-            //Console.WriteLine(rTime);
-            this.lblTimeRewarded.Text = rTime.ToString() + " minutes";
+            
+            rewardTime = rTime.ToString() + " minutes";
+            this.lblTimeRewarded.Text = rewardTime;
         }
 
 
@@ -120,9 +122,9 @@ namespace mosquito
             timer2.Start();
 
             ProgressTracker.makeSavedUserAssignments();
-            this.lblTimeRewarded.Text = rTime.ToString();
-            //this.lblTimeRewarded.Text = newForm2.rewardTime;
-
+            this.lblTimeRewarded.Text = rTime.ToString() + " minutes";
+            
+            
             //rtxtTaskList.Text = 
         }
 
