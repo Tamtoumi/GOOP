@@ -140,16 +140,37 @@ namespace mosquito
         }
     }
 
+    /// Author: Henry Reynaud
+    /// <summary>
+    /// Class which is responsible for allowing other classes to change
+    /// the detected signal and freetime signal, as well as allowing them
+    /// to be checked. They're both used to see if annoyance windows should
+    /// be created by the initialAnnoyanceWindow.
+    /// </summary>
     public class detection_signals
     {
+        //bool for if there are bad applications currently running on the system
         public static bool detected_check = false;
+        //bool for if the user is currently using their designated freetime
         public static bool freetime_check = false;
 
+        /// <summary>
+        /// Function for updating the bad application detection bool.
+        /// </summary>
+        /// <param name="check">
+        /// What to set the detection check to.
+        /// </param>
         public static void set_detector(bool check)
         {
             detected_check = check;
         }
 
+        /// <summary>
+        /// Function for updating the freetime check.
+        /// </summary>
+        /// <param name="freetime">
+        /// What to set the freetime check to. 
+        /// </param>
         public static void set_freetime(bool freetime)
         {
             freetime_check = freetime;

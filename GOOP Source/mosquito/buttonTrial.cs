@@ -53,6 +53,13 @@ namespace mosquito
             parent = from;
         }
 
+        /// <summary>
+        /// Loading function for the button trial window. Sets the text of each button
+        /// to say 'cancel' so they look identical. Also creates a unique random number 
+        /// for each button to make only one of them work.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTrial_Load(object sender, EventArgs e)
         {
             int number1;
@@ -78,11 +85,28 @@ namespace mosquito
             //}
         }
 
+        /// <summary>
+        /// A check for each button to see if its unique random number 
+        /// matches the chosen random number. If it matches, then it 
+        /// is the activated button. 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>
+        /// Returns a bool if the button is the usable button. 
+        /// </returns>
         private bool isTheOne(int index)
         {
             return validNumbers[index - 1] == randomNumber;
         }
 
+
+        /// <summary>
+        /// Each button click function had to be done individually, but
+        /// they all function the same by checking its random number against
+        /// the chosen one to see if it should close the window. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (isTheOne(1))
@@ -309,11 +333,23 @@ namespace mosquito
             }
         }
 
+        /// <summary>
+        /// Closing function for the window. Calls the return function 
+        /// to the parent initialAnnoyanceWindow and gives it the level
+        /// it was created in. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTrial_FormClosing(object sender, FormClosingEventArgs e)
         {
             parent.returnFromLevel(level); 
         }
 
+        /// <summary>
+        /// SizeChanged function for the window. Prevents the user from minimizing the window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonTrial_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
