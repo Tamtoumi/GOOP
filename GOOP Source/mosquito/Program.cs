@@ -26,7 +26,14 @@ namespace mosquito
             Application.Run(new Form1());
         }
     }
-
+    /*
+    Author(s): Haytham Bachar and Henry Reynaud
+    Description: The Application Detector will find all actively running processes on the user's local machine
+    and compare the process names to the list of bad applications provided by the user upon initial setup.
+    If a bad process is detected, the AppDetector will signal the System Preventer to turn on, as well
+    as send a full list of offensive processes. If not, the computer will keep the System
+    Preventer turned off.
+    */
     public class AppDetector
     {
 
@@ -36,6 +43,9 @@ namespace mosquito
 
         private Process[] myProcesses;
 
+           /*
+         * Description: Retrieve all running processes on the local machine
+         */
         private Process[] getAllProcesses()
         {
             Process[] localAll = Process.GetProcesses();
@@ -43,7 +53,14 @@ namespace mosquito
             return localAll;
         }
 
-
+        /*
+         * Function: detectBadApplication
+         * Parameters: None
+         * Description: Retrieves list of distracting applications from Application Manager
+         *              For each bad application in the list, compare against an array containing
+         *              all running processes on the machine. If two applications match, signal
+         *              the system preventer to turn on. Else, keep system preventer off.
+         */
         private void detectBadApplication()
         {
             Array.Clear(myProcesses, 0, myProcesses.Length);
@@ -116,7 +133,7 @@ namespace mosquito
 
         public static void appDetectorUpdater()
         {
-            // Get list from Ross and save it into a local string array
+            // Run the detector
             AppDetector detector = new AppDetector();
             detector.myProcesses = detector.getAllProcesses();
             detector.detectBadApplication();
