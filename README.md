@@ -14,7 +14,7 @@ How To:
 2. Application Manager opens up when the files are all gathered. From the Installed executables list on the right, enter the number of the application you find distracting.
    Executables are sorted in alphabetical order so it should be easy to find. Can delete from the list by inserting the exact program name in the bad app list on the left. 
 3. Enter the Task Viewer. Create tasks that you plan to accomplish for your assignment/work. Hit start when ready to begin working.
-4. When in Start Mode, if an application running is on the Bad App List, popups will appear to deter your distraction. 3 levels of popups: normal forms, captcha with pics, buttons
+4. When in Start Mode, if an application running is on the Bad App List, popups will appear to deter your distraction. 2 levels of popups: normal popups, captcha with pics, buttons
 5. When tasks are completed, enter them to add time to the Reward Time. This time can be used to take a break from work and go on the Bad Application from the list. Once the timer
    is finished, the application preventor will activate again and ensue popups.
 6. When all tasks are completed, the program can be closed.
